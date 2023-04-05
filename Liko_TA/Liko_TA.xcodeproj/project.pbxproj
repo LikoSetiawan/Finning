@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25113E6929DDD91500991DB9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E6829DDD91500991DB9 /* Color.swift */; };
+		25113E6B29DDEBEC00991DB9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E6A29DDEBEC00991DB9 /* OnboardingView.swift */; };
 		2525DB9F29D4A8B20083AB91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */; };
 		2525DBA229D4AA080083AB91 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA129D4AA080083AB91 /* FirebaseAppCheck */; };
 		2525DBA429D4AA080083AB91 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA329D4AA080083AB91 /* FirebaseAppDistribution-Beta */; };
@@ -19,6 +21,7 @@
 		2525DBB229D4AA080083AB91 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB129D4AA080083AB91 /* FirebaseFirestoreSwift */; };
 		2525DBB429D4AA080083AB91 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB329D4AA080083AB91 /* FirebaseStorage */; };
 		2525DBB629D4AA080083AB91 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB529D4AA080083AB91 /* FirebaseStorageCombine-Community */; };
+		2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
 		25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A4AFEE29C44576001227BB /* Assets.xcassets */; };
@@ -46,7 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25113E6829DDD91500991DB9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		25113E6A29DDEBEC00991DB9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
 		25A4AFEC29C44575001227BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25113E6629DDD8EF00991DB9 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				25113E6729DDD8F700991DB9 /* extension */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		25113E6729DDD8F700991DB9 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				25113E6829DDD91500991DB9 /* Color.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		2525DBBA29D4AD250083AB91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */,
+				25113E6A29DDEBEC00991DB9 /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		25A4AFDE29C44575001227BB = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +149,8 @@
 		25A4AFE929C44575001227BB /* Liko_TA */ = {
 			isa = PBXGroup;
 			children = (
+				25113E6629DDD8EF00991DB9 /* utils */,
+				2525DBBA29D4AD250083AB91 /* View */,
 				2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */,
 				25A4AFEA29C44575001227BB /* Liko_TAApp.swift */,
 				25A4AFEC29C44575001227BB /* ContentView.swift */,
@@ -300,6 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				25A4AFED29C44575001227BB /* ContentView.swift in Sources */,
+				25113E6929DDD91500991DB9 /* Color.swift in Sources */,
+				2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */,
+				25113E6B29DDEBEC00991DB9 /* OnboardingView.swift in Sources */,
 				25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
