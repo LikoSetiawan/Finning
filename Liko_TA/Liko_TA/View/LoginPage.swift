@@ -88,15 +88,17 @@ struct LoginPage: View {
                 Button{
                     Login()
                 }label: {
-                    Text("Login")
-                        .font(.headline)
-                        .frame(width: 340, height: 50)
-                        .fontWeight(.semibold)
-                        .background(Color.gray)
-                        .foregroundColor(Color.black)
-                        .cornerRadius(15)
-                        .background(Color.interactiveColor)
-                    
+                    NavigationLink(destination: OnboardingView().navigationBarBackButtonHidden(true)){
+                        Text("Login")
+                            .font(.headline)
+                            .frame(width: 340, height: 50)
+                            .fontWeight(.semibold)
+                            .background(Color.gray)
+                            .foregroundColor(Color.black)
+                            .cornerRadius(15)
+                            .background(Color.interactiveColor)
+                        
+                    }
                 }
                 
             }
