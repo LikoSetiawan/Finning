@@ -1,56 +1,55 @@
 //
-//  LoginPage.swift
+//  RegisterPage.swift
 //  Liko_TA
 //
-//  Created by Liko Setiawan on 30/03/23.
+//  Created by Liko Setiawan on 07/04/23.
 //
+
 
 import Foundation
 import SwiftUI
-import FirebaseAuth
 import Firebase
 
-
-struct LoginPage: View {
+struct RegisterPage: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
     
-    
     var body: some View {
         NavigationView{
             VStack(alignment: .leading, spacing: 30){
-                HStack(spacing: 20) {
+                HStack(spacing: 10) {
                     Image("onboardingappicon")
                         .resizable()
                         .frame(width: 60, height: 60)
                         .cornerRadius(15)
-                    Text("Login")
+                    Text("Register")
                         .bold()
                         .font(.system(size: 35))
+                    
                     
                 }
                 .padding(.top, 35)
                 ZStack{
-                    Text("Login ke Akunmu")
+                    Text("Buat Akun")
                 }
                 .bold()
                 .font(.system(size: 25))
                 
                 ZStack{
                     HStack{
-                        Text("Belum punya akun?")
+                        Text("Sudah punya akun?")
                         Spacer()
-                        NavigationLink(destination: RegisterPage().navigationBarBackButtonHidden(true)){
-                            Text("Daftar Disini")
+                        NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true)){
+                            Text("Login Disini")
                                 .bold()
                                 .foregroundColor(Color.black)
                         }
+                        .padding(.trailing, 30)
                         .navigationBarHidden(true)
+                        
                     }
                     .font(.system(size: 18))
-                    .padding(.trailing, 30)
-                    
                 }
                 Spacer()
                     .frame(height: 1)
@@ -59,9 +58,15 @@ struct LoginPage: View {
                         .padding(.trailing, 330)
                         .font(.system(size: 18))
                     TextField("", text: $email)
+                    //                        .background(Color.red)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
+                    //                        .placeholder(when: email.isEmpty){
+                    //                            Text("Email")
+                    //                                .bold()
+                    //                                .font(.system(size: 15))
+                    //                        }
                         .background(
                             Rectangle()
                                 .frame(height: 1)
@@ -86,29 +91,31 @@ struct LoginPage: View {
                 Spacer()
                     .frame(height: 2)
                 Button{
-                    Login()
+                    register()
                 }label: {
-                    Text("Login")
-                        .font(.headline)
-                        .frame(width: 340, height: 50)
-                        .fontWeight(.semibold)
-                        .background(Color.gray)
-                        .foregroundColor(Color.black)
-                        .cornerRadius(15)
-                        .background(Color.interactiveColor)
-                    
+                    NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true)){
+                        Text("Sign Up")
+                            .font(.headline)
+                            .frame(width: 340, height: 50)
+                            .fontWeight(.semibold)
+                            .background(Color.gray)
+                            .foregroundColor(Color.black)
+                            .cornerRadius(15)
+                            .background(Color.interactiveColor)
+                    }
                 }
                 
             }
             .padding(.leading, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            }
         }
+    }
+    
     //tutorial disini bang
     //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
     
-      func Login(){
-          Auth.auth().signIn(withEmail: email, password: password){ result, error in
+      func register(){
+          Auth.auth().createUser(withEmail: email, password: password){ result, error in
               if error != nil{
                   print(error!.localizedDescription)
               }
@@ -116,24 +123,10 @@ struct LoginPage: View {
           }
           
       }
-    }
-
-struct LoginPage_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginPage()
-    }
 }
 
-extension View{
-    func placeholder<Content : View>(
-        when shouldShow : Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View{
-            
-            
-            ZStack(alignment: alignment){
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
-        }
+struct RegisterPage_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterPage()
+    }
 }
