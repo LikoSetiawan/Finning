@@ -98,10 +98,9 @@ struct RegisterPage: View {
                             .font(.headline)
                             .frame(width: 340, height: 50)
                             .fontWeight(.semibold)
-                            .background(Color.gray)
                             .foregroundColor(Color.black)
+                            .background(Color("interactiveColor"))
                             .cornerRadius(15)
-                            .background(Color.interactiveColor)
                     }
                 }
                 

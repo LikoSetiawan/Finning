@@ -12,6 +12,7 @@
 		25113E6D29DF364300991DB9 /* RegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E6C29DF364300991DB9 /* RegisterPage.swift */; };
 		25113E7229E0860B00991DB9 /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E7129E0860B00991DB9 /* Textfield.swift */; };
 		25113E7429E0868100991DB9 /* InputIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E7329E0868100991DB9 /* InputIncomeView.swift */; };
+		25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E7529E2BAB200991DB9 /* SetupBudgetView.swift */; };
 		2525DB9F29D4A8B20083AB91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */; };
 		2525DBA229D4AA080083AB91 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA129D4AA080083AB91 /* FirebaseAppCheck */; };
 		2525DBA429D4AA080083AB91 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA329D4AA080083AB91 /* FirebaseAppDistribution-Beta */; };
@@ -57,6 +58,7 @@
 		25113E6C29DF364300991DB9 /* RegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPage.swift; sourceTree = "<group>"; };
 		25113E7129E0860B00991DB9 /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		25113E7329E0868100991DB9 /* InputIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIncomeView.swift; sourceTree = "<group>"; };
+		25113E7529E2BAB200991DB9 /* SetupBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetView.swift; sourceTree = "<group>"; };
 		2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				25113E6A29DDEBEC00991DB9 /* OnboardingView.swift */,
 				25113E6C29DF364300991DB9 /* RegisterPage.swift */,
 				25113E7329E0868100991DB9 /* InputIncomeView.swift */,
+				25113E7529E2BAB200991DB9 /* SetupBudgetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				25113E6B29DDEBEC00991DB9 /* OnboardingView.swift in Sources */,
 				25113E7429E0868100991DB9 /* InputIncomeView.swift in Sources */,
 				25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */,
+				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

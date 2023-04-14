@@ -8,8 +8,51 @@
 import SwiftUI
 
 struct InputIncomeView: View {
+    
+    @State var income : Int = 0
+    
+    
+    var numberFormatter : NumberFormatter{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.zeroSymbol = ""
+        return numberFormatter
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(){
+            VStack{
+                Text("Income")
+                    .fontWeight(.bold)
+                    .font(.system(size: 31))
+                Text("Masukin penghasilan kamu di sini!")
+                    .fontWeight(.regular)
+                    .font(.system(size: 18))
+                    .frame(height: 70, alignment:.topLeading)
+            }
+            .padding(.top, 55)
+            Spacer()
+                .frame(height: 1)
+            TextField("cth: 2,000,000", value: $income, formatter: numberFormatter )
+                .padding()
+                .textFieldStyle(OvalTextFieldStyle())
+                .keyboardType(.numberPad)
+            Spacer()
+            NavigationLink(destination: SetupBudgetView().navigationBarBackButtonHidden(true)){
+                Text("Continue")
+                    .font(.headline)
+                    .frame(width: 340, height: 50)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.black)
+                    .background(Color("interactiveColor"))
+                    .cornerRadius(15)
+                
+            }
+
+        }
+        .frame(maxWidth:.infinity)
+        
+        
     }
 }
 

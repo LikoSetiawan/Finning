@@ -93,10 +93,9 @@ struct LoginPage: View {
                             .font(.headline)
                             .frame(width: 340, height: 50)
                             .fontWeight(.semibold)
-                            .background(Color.gray)
                             .foregroundColor(Color.black)
+                            .background(Color("interactiveColor"))
                             .cornerRadius(15)
-                            .background(Color.interactiveColor)
                         
                     }
                 }
@@ -104,7 +103,10 @@ struct LoginPage: View {
             }
             .padding(.leading, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            
             }
+//        .background(Color("WhiteColor")).ignoresSafeArea()
+        
         }
     //tutorial disini bang
     //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
