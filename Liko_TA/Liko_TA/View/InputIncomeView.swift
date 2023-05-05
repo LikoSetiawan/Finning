@@ -21,7 +21,6 @@ struct InputIncomeView: View {
     }
     
     var body: some View {
-        NavigationStack {
             VStack{
                 VStack{
                     Text("Income")
@@ -51,7 +50,6 @@ struct InputIncomeView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        }
 //        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         
     }

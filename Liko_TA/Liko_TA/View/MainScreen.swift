@@ -16,6 +16,7 @@ struct MainScreen: View {
     ]
     
     @State private var isModalOpen = false
+    @Binding var segments : [Segment]
     
     
     var body: some View {
@@ -44,30 +45,39 @@ struct MainScreen: View {
                     .frame(width: 345, height: 10, alignment: .leading)
                     .padding(.top, 10)
                     
-//                    LazyVGrid(columns: adaptiveColumns, spacing: 10) {
-//                        ForEach($segments, id: \.self){ segment in
-//                            Button(action: {
-//                                isModalOpen.toggle()
-//                            }
-//                            ){
-//                                ZStack{
-//                                    CardView(segmentList: segment)
-//                                }
-//
-//                            }
-//                            .sheet(isPresented: $isModalOpen){
-//                                AddExpenseMainView(random: .constant(true))
-//
-//                            }
-//                            .buttonStyle(CustomButtonStyle(isSelected: true))
-//                        }
-//
-//                    }
-//                    .padding()
+                    LazyVGrid(columns: adaptiveColumns, spacing: 10) {
+                        ForEach($segments, id: \.self){ segment in
+                            Button(action: {
+                                isModalOpen.toggle()
+                            }
+                            ){
+                                ZStack{
+                                    CardView(segmentList: segment)
+                                }
+
+                            }
+                            .sheet(isPresented: $isModalOpen){
+                                AddExpenseMainView(random: .constant(true))
+
+                            }
+                            .buttonStyle(CustomButtonStyle(isSelected: true))
+                        }
+
+                    }
+                    .padding()
                     
                 }
             }
             .navigationTitle("Summary")
+            .navigationBarItems(trailing:
+                NavigationLink(destination: ReportsView()){
+                    Text("See Reports")
+                    .bold()
+                    .padding(20)
+                    .padding(.top, 100)
+                    .foregroundColor(Color("interactiveColor"))
+                }
+            )
             .background(Color("WhiteColor").ignoresSafeArea())
             
             
@@ -97,6 +107,6 @@ struct CustomButtonStyle : ButtonStyle {
 
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreen()
+        MainScreen(segments: .constant([Segment]()))
     }
 }

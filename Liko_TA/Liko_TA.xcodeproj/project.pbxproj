@@ -18,7 +18,7 @@
 		25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E7C29EB4F8F00991DB9 /* MainScreen.swift */; };
 		25113E8129EB515700991DB9 /* AddExpenseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E8029EB515700991DB9 /* AddExpenseMainView.swift */; };
 		25113E8329EB523700991DB9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E8229EB523700991DB9 /* CardView.swift */; };
-		2525DB9F29D4A8B20083AB91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */; };
+		25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113E8429EC79C300991DB9 /* ReportsView.swift */; };
 		2525DBA229D4AA080083AB91 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA129D4AA080083AB91 /* FirebaseAppCheck */; };
 		2525DBA429D4AA080083AB91 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA329D4AA080083AB91 /* FirebaseAppDistribution-Beta */; };
 		2525DBA629D4AA080083AB91 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBA529D4AA080083AB91 /* FirebaseAuth */; };
@@ -31,6 +31,7 @@
 		2525DBB429D4AA080083AB91 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB329D4AA080083AB91 /* FirebaseStorage */; };
 		2525DBB629D4AA080083AB91 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB529D4AA080083AB91 /* FirebaseStorageCombine-Community */; };
 		2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */; };
+		2594AE612A04342D0067B752 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2594AE602A04342D0067B752 /* GoogleService-Info.plist */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
 		25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A4AFEE29C44576001227BB /* Assets.xcassets */; };
@@ -69,8 +70,9 @@
 		25113E7C29EB4F8F00991DB9 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		25113E8029EB515700991DB9 /* AddExpenseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseMainView.swift; sourceTree = "<group>"; };
 		25113E8229EB523700991DB9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25113E8429EC79C300991DB9 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		2594AE602A04342D0067B752 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
 		25A4AFEC29C44575001227BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				25113E7329E0868100991DB9 /* InputIncomeView.swift */,
 				25113E7529E2BAB200991DB9 /* SetupBudgetView.swift */,
 				25113E7C29EB4F8F00991DB9 /* MainScreen.swift */,
+				25113E8429EC79C300991DB9 /* ReportsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 		25A4AFE929C44575001227BB /* Liko_TA */ = {
 			isa = PBXGroup;
 			children = (
+				2594AE602A04342D0067B752 /* GoogleService-Info.plist */,
 				25113E7E29EB511400991DB9 /* New Group */,
 				25113E7729EB4C9300991DB9 /* Component */,
 				25113E6629DDD8EF00991DB9 /* utils */,
@@ -205,7 +209,6 @@
 				25A4AFEA29C44575001227BB /* Liko_TAApp.swift */,
 				25A4AFEC29C44575001227BB /* ContentView.swift */,
 				25A4AFEE29C44576001227BB /* Assets.xcassets */,
-				2525DB9E29D4A8B20083AB91 /* GoogleService-Info.plist */,
 				25A4AFF029C44576001227BB /* Preview Content */,
 			);
 			path = Liko_TA;
@@ -358,7 +361,7 @@
 			files = (
 				25A4AFF229C44576001227BB /* Preview Assets.xcassets in Resources */,
 				25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */,
-				2525DB9F29D4A8B20083AB91 /* GoogleService-Info.plist in Resources */,
+				2594AE612A04342D0067B752 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25113E8329EB523700991DB9 /* CardView.swift in Sources */,
+				25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */,
 				25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */,
 				25113E7229E0860B00991DB9 /* Textfield.swift in Sources */,
 				25A4AFED29C44575001227BB /* ContentView.swift in Sources */,
@@ -555,6 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Liko_TA/Preview Content\"";
+				DEVELOPMENT_TEAM = V87M9TA2X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -583,6 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Liko_TA/Preview Content\"";
+				DEVELOPMENT_TEAM = V87M9TA2X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

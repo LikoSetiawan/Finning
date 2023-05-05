@@ -13,15 +13,15 @@ struct Segment: Identifiable, Hashable{
     
     var title: String
     var value: Int
-    var recommended: Bool
+//    var recommended: Bool
 }
 
 class SegmentsViewModel: ObservableObject{
     @Published var segments: [Segment] = [
-        Segment(title: "Makanan dan Minum", value: 0, recommended: false),
-        Segment(title: "Transportasi", value: 0, recommended: false),
-        Segment(title: "Hobby", value: 0, recommended: false),
-        Segment(title: "Kegiatan Kuliah", value: 0, recommended: false),
+        Segment(title: "Makanan dan Minum", value: 0),
+        Segment(title: "Transportasi", value: 0),
+        Segment(title: "Hobby", value: 0),
+        Segment(title: "Kegiatan Kuliah", value: 0),
     ]
 }
 
@@ -63,7 +63,7 @@ struct SetupBudgetView: View {
             
             
             Spacer()
-            NavigationLink(destination: SetupBudgetView().navigationBarBackButtonHidden(true)){
+            NavigationLink(destination: MainScreen(segments: $viewModel.segments).navigationBarBackButtonHidden(true)){
                 Text("Continue")
                     .font(.headline)
                     .frame(width: 340, height: 50)
@@ -80,29 +80,12 @@ struct SetupBudgetView: View {
     }
 }
 
-struct SegmentRow: View {
-    
-    @Binding var value: Int
-    @Binding var title: String
-    @Binding var recommended: Bool
-    
-    var body: some View{
-        VStack(alignment: .leading) {
-            HStack{
-                Text(title)
-                Text("\(value)")
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            }
-            Divider()
-        }.listRowSeparator(.hidden)
-    }
-}
     
 
 
 
 struct SetupBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        SetupBudgetView()
+        SetupBudgetView(viewModel: SegmentsViewModel())
     }
 }

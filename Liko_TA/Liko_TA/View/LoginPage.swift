@@ -5,16 +5,16 @@
 //  Created by Liko Setiawan on 30/03/23.
 //
 
-import Foundation
 import SwiftUI
 import FirebaseAuth
-import Firebase
 
 
 struct LoginPage: View {
     
+    @State private var isLogin = false
     @State private var email: String = ""
     @State private var password: String = ""
+    
     
     
     var body: some View {
@@ -56,7 +56,7 @@ struct LoginPage: View {
                     .frame(height: 1)
                 VStack{
                     Text("Email")
-                        .padding(.trailing, 330)
+                        .padding(.trailing, 325)
                         .font(.system(size: 18))
                     TextField("", text: $email)
                         .keyboardType(.emailAddress)
@@ -73,7 +73,7 @@ struct LoginPage: View {
                 }
                 VStack{
                     Text("Password")
-                        .padding(.trailing, 299)
+                        .padding(.trailing, 296)
                     SecureField("", text: $password)
                         .background(
                             Rectangle()
@@ -85,42 +85,59 @@ struct LoginPage: View {
                 }
                 Spacer()
                     .frame(height: 2)
-                Button{
-                    Login()
-                }label: {
-                    NavigationLink(destination: OnboardingView().navigationBarBackButtonHidden(true)){
-                        Text("Login")
-                            .font(.headline)
-                            .frame(width: 340, height: 50)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .background(Color("interactiveColor"))
-                            .cornerRadius(15)
-                        
-                    }
+                
+                
+                Button(action: loginUser) {
+                    Text("Login")
+                        .font(.headline)
+                        .frame(width: 340, height: 50)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
+                        .background(Color("interactiveColor"))
+                        .cornerRadius(15)
+                        }
+                        // Navigate to next page if login is successful
+                NavigationLink(destination: InputIncomeView().navigationBarBackButtonHidden(true), isActive: $isLogin) {
+                            EmptyView()
+        
+//                Button{
+//
+//                }label: {
+//                    Text("Login")
+//                        .font(.headline)
+//                        .frame(width: 340, height: 50)
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(Color.black)
+//                        .background(Color("interactiveColor"))
+//                        .cornerRadius(15)
                 }
                 
             }
             .padding(.leading, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            
             }
-//        .background(Color("WhiteColor")).ignoresSafeArea()
         
         }
     //tutorial disini bang
     //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
     
-      func Login(){
-          Auth.auth().signIn(withEmail: email, password: password){ result, error in
-              if error != nil{
-                  print(error!.localizedDescription)
-              }
-              
-          }
-          
-      }
+    
+    private func loginUser() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, err in
+            if let err = err {
+                print("Failed due to error:", err)
+                return
+            }
+            print("Successfully logged in with ID: \(result?.user.uid ?? "")")
+            // Set isLogin to true if login is successful
+            self.isLogin = true
+        }
     }
+    
+    
+    }
+
+
 
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {

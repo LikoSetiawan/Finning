@@ -6,12 +6,13 @@
 //
 
 
-import Foundation
 import SwiftUI
-import Firebase
+import FirebaseAuth
 
 struct RegisterPage: View {
     
+    
+    @State private var isLogin = false
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -55,18 +56,12 @@ struct RegisterPage: View {
                     .frame(height: 1)
                 VStack{
                     Text("Email")
-                        .padding(.trailing, 330)
+                        .padding(.trailing, 325)
                         .font(.system(size: 18))
                     TextField("", text: $email)
-                    //                        .background(Color.red)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    //                        .placeholder(when: email.isEmpty){
-                    //                            Text("Email")
-                    //                                .bold()
-                    //                                .font(.system(size: 15))
-                    //                        }
                         .background(
                             Rectangle()
                                 .frame(height: 1)
@@ -78,7 +73,7 @@ struct RegisterPage: View {
                 }
                 VStack{
                     Text("Password")
-                        .padding(.trailing, 299)
+                        .padding(.trailing, 295)
                     SecureField("", text: $password)
                         .background(
                             Rectangle()
@@ -90,38 +85,50 @@ struct RegisterPage: View {
                 }
                 Spacer()
                     .frame(height: 2)
-                Button{
-                    register()
-                }label: {
-                    NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true)){
-                        Text("Sign Up")
-                            .font(.headline)
-                            .frame(width: 340, height: 50)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .background(Color("interactiveColor"))
-                            .cornerRadius(15)
-                    }
-                }
                 
+                NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true), isActive: $isLogin){
+                        Button{
+                            createUser()
+                            isLogin = true
+                    }label: {
+                            Text("Sign Up")
+                                .font(.headline)
+                                .frame(width: 340, height: 50)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.black)
+                                .background(Color("interactiveColor"))
+                                .cornerRadius(15)
+                                    }
+                                }
+//                Button{
+//                    createUser()
+//                }label: {
+//                    Text("Sign Up")
+//                        .font(.headline)
+//                        .frame(width: 340, height: 50)
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(Color.black)
+//                        .background(Color("interactiveColor"))
+//                        .cornerRadius(15)
             }
             .padding(.leading, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
     }
     
-    //tutorial disini bang
+    //tutorial disini
     //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
     
-      func register(){
-          Auth.auth().createUser(withEmail: email, password: password){ result, error in
-              if error != nil{
-                  print(error!.localizedDescription)
-              }
-              
-          }
-          
-      }
+    
+    private func createUser() {
+           Auth.auth().createUser(withEmail: email, password: password, completion: { result, err in
+               if let err = err {
+                   print("Failed due to error:", err)
+                   return
+               }
+               print("Successfully created account with ID: \(result?.user.uid ?? "")")
+           })
+       }
 }
 
 struct RegisterPage_Previews: PreviewProvider {

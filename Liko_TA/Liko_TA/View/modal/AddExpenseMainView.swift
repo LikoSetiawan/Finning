@@ -8,6 +8,17 @@
 import SwiftUI
 
 struct AddExpenseMainView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    @FocusState private var isInputActive: Bool
+    @State var totalBudget : Int = 0
+    @State var budgetCategory : String = ""
+    @State var recomendationEnabled: Bool = false
+    @Binding var random:Bool
+    
+    
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,6 +26,6 @@ struct AddExpenseMainView: View {
 
 struct AddExpenseMainView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseMainView()
+        AddExpenseMainView(random: .constant(true))
     }
 }

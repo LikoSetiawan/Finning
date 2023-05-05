@@ -45,5 +45,6 @@ struct RecommendationCardView: View {
 struct RecommendationCardView_Previews: PreviewProvider {
     static var previews: some View {
         RecommendationCardView()
+            .frame(width: .infinity , height: 100)
     }
 }
