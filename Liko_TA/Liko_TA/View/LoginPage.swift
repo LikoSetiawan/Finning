@@ -86,7 +86,6 @@ struct LoginPage: View {
                 Spacer()
                     .frame(height: 2)
                 
-                
                 Button(action: loginUser) {
                     Text("Login")
                         .font(.headline)
@@ -96,7 +95,7 @@ struct LoginPage: View {
                         .background(Color("interactiveColor"))
                         .cornerRadius(15)
                         }
-                        // Navigate to next page if login is successful
+                        // Navigate kalo berhasil log in
                 NavigationLink(destination: InputIncomeView().navigationBarBackButtonHidden(true), isActive: $isLogin) {
                             EmptyView()
         

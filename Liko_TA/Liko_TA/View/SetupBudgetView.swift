@@ -29,7 +29,7 @@ class SegmentsViewModel: ObservableObject{
 struct SetupBudgetView: View {
     
     @ObservedObject var viewModel = SegmentsViewModel()
-
+    @State private var isModalOpen = false
     
     var body: some View {
         VStack(){
@@ -49,16 +49,24 @@ struct SetupBudgetView: View {
             
             VStack{
                 List(viewModel.segments, id: \.title) { segment in
-                           HStack {
-                               Text(segment.title)
-                               Spacer()
-                               Text("Rp. \(segment.value) -")
-                           }
-                       }
-                
-                
+                    Button(action: {
+                        self.isModalOpen = true
+                    }) {
+                        HStack {
+                            Text(segment.title)
+                            Spacer()
+                            Text("Rp. \(segment.value) -")
+                        }
+                    }
+                    .sheet(isPresented: $isModalOpen) {
+                        AddBudgetModalView(segment: SegmentsViewModel(), ramdom: .constant(true))
+                    }
+                    .buttonStyle(CustomButtonStyle(isSelected: true))
+                    
+                }
                 
             }
+            
             
             
             

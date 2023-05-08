@@ -37,7 +37,7 @@ struct RecommendationCardView: View {
             .padding()
 
         }
-        .frame(width: .infinity , height: 100)
+//        .frame(width: .infinity , height: 100)
         
     }
 }

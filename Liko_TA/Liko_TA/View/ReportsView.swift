@@ -6,63 +6,104 @@
 //
 
 import SwiftUI
+import Charts
 
 
-struct Bar : Identifiable{
+struct WineLog {
     let id =  UUID()
-    var name : String
-    var pp : String
-    var value : Double
-    var color : Color
-    
-    static var sampleBars: [Bar] {
-        var tempBars = [Bar]()
-        var color : Color = .green
-        let pp = ["Pemasukan","Pengeluaran"]
-        
-        for i in 1...2{
-            let rand = Double.random(in: 20...200)
-            
-            if rand > 150{
-                color = .red
-            }else if rand > 75{
-                color = .yellow
-                }
-            let bar = Bar(name: "\(i)", pp: pp[i-1],  value: rand, color: color)
-            tempBars.append(bar)
-            
-        }
-        return tempBars
-    }
-    
-    
+    var variety : String
+    var quantity : Int
+    var country : String
+    var entrydate : Date
 }
+    
+func date(year : Int, month : Int, day : Int) -> Date{
+    Calendar.current.date(from: .init(year: year, month: month, day: day)) ?? Date()
+}
+    
+    
 
 struct ReportsView: View {
     
-    @State private var bars = Bar.sampleBars
     @State private var selectedID : UUID = UUID()
-//    @State private var text = "info "
+    
+    let wine1 = WineLog(
+        variety: "Cardonay",
+        quantity: 15,
+        country: "Canada",
+        entrydate: date(year: 2022, month: 7 , day: 23))
+    
+    let wine2 = WineLog(
+        variety: "Orang Tua",
+        quantity: 25,
+        country: "Indonesia",
+        entrydate: date(year: 2022, month: 7 , day: 22))
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ScrollView{
-                HStack{
-                    Text("Halo")
+                VStack{
+                    Chart{
+                        BarMark(x : .value("Country", wine1.country),
+                                y : .value("In Stock", wine1.quantity))
+                        BarMark(x : .value("Country", wine2.country),
+                                y : .value("In Stock", wine2.quantity))
+                        
+                    }
+                    .padding()
+                    .frame(width: 380, height: 350)
                     
+                    ZStack{
+                            RoundedRectangle(cornerRadius:20)
+                                .fill(.white)
+                                .frame(width: 280, height: 90, alignment: .leading)
+                            ReportCardView()
+                    }
+                    .padding(.bottom, 15)
+                    Divider()
+                    
+                    VStack(){
+                        Text("Detail Pengeluaran")
+                            .font(.system(size: 24)).bold()
+                            .foregroundColor(.black)
+                    }
+                    .frame(width: 345, height: 10, alignment: .leading)
+                    .padding(.top, 25)
+
                 }
                 
                 
                 
             }
+            .padding()
             .navigationTitle("Report ")
-            
+            .background(Color("WhiteColor").ignoresSafeArea())
+//            .navigationBarItems(leading: BackButton())
         }
+        
     }
 }
 
 struct ReportsView_Previews: PreviewProvider {
     static var previews: some View {
         ReportsView()
+    }
+}
+
+struct BackButton: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    var body: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "arrow.left")
+                    .font(.title)
+                Text("Back")
+                    .fontWeight(.semibold)
+            }
+            .foregroundColor(Color("interactiveColor"))
+        }
     }
 }

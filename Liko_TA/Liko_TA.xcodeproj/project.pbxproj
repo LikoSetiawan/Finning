@@ -31,6 +31,9 @@
 		2525DBB429D4AA080083AB91 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB329D4AA080083AB91 /* FirebaseStorage */; };
 		2525DBB629D4AA080083AB91 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2525DBB529D4AA080083AB91 /* FirebaseStorageCombine-Community */; };
 		2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */; };
+		253C02DC2A06B2800085058C /* ReportCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02DB2A06B2800085058C /* ReportCardView.swift */; };
+		253C02E12A06BCE70085058C /* AddBudgetModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E02A06BCE70085058C /* AddBudgetModalView.swift */; };
+		253C02E32A06D8550085058C /* CardExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E22A06D8550085058C /* CardExpensesView.swift */; };
 		2594AE612A04342D0067B752 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2594AE602A04342D0067B752 /* GoogleService-Info.plist */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
@@ -72,6 +75,9 @@
 		25113E8229EB523700991DB9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		25113E8429EC79C300991DB9 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		2525DBBB29D4AD3E0083AB91 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		253C02DB2A06B2800085058C /* ReportCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCardView.swift; sourceTree = "<group>"; };
+		253C02E02A06BCE70085058C /* AddBudgetModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetModalView.swift; sourceTree = "<group>"; };
+		253C02E22A06D8550085058C /* CardExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpensesView.swift; sourceTree = "<group>"; };
 		2594AE602A04342D0067B752 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
@@ -144,6 +150,8 @@
 				25113E7829EB4D4B00991DB9 /* SisaUangCardView.swift */,
 				25113E7A29EB4E6F00991DB9 /* RecommendationCardView.swift */,
 				25113E8229EB523700991DB9 /* CardView.swift */,
+				253C02DB2A06B2800085058C /* ReportCardView.swift */,
+				253C02E22A06D8550085058C /* CardExpensesView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				25113E8029EB515700991DB9 /* AddExpenseMainView.swift */,
+				253C02E02A06BCE70085058C /* AddBudgetModalView.swift */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -386,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253C02DC2A06B2800085058C /* ReportCardView.swift in Sources */,
 				25113E8329EB523700991DB9 /* CardView.swift in Sources */,
 				25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */,
 				25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */,
@@ -393,6 +403,7 @@
 				25A4AFED29C44575001227BB /* ContentView.swift in Sources */,
 				25113E6929DDD91500991DB9 /* Color.swift in Sources */,
 				2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */,
+				253C02E12A06BCE70085058C /* AddBudgetModalView.swift in Sources */,
 				25113E6D29DF364300991DB9 /* RegisterPage.swift in Sources */,
 				25113E8129EB515700991DB9 /* AddExpenseMainView.swift in Sources */,
 				25113E6B29DDEBEC00991DB9 /* OnboardingView.swift in Sources */,
@@ -401,6 +412,7 @@
 				25113E7B29EB4E6F00991DB9 /* RecommendationCardView.swift in Sources */,
 				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
 				25113E7929EB4D4B00991DB9 /* SisaUangCardView.swift in Sources */,
+				253C02E32A06D8550085058C /* CardExpensesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
