@@ -34,7 +34,12 @@
 		253C02DC2A06B2800085058C /* ReportCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02DB2A06B2800085058C /* ReportCardView.swift */; };
 		253C02E12A06BCE70085058C /* AddBudgetModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E02A06BCE70085058C /* AddBudgetModalView.swift */; };
 		253C02E32A06D8550085058C /* CardExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E22A06D8550085058C /* CardExpensesView.swift */; };
-		2594AE612A04342D0067B752 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2594AE602A04342D0067B752 /* GoogleService-Info.plist */; };
+		253C02E52A0947100085058C /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E42A0947100085058C /* WriteViewModel.swift */; };
+		253C02E82A0969300085058C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02E72A0969300085058C /* IncomeModel.swift */; };
+		253C02EA2A09732B0085058C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 253C02E92A09732B0085058C /* GoogleService-Info.plist */; };
+		253C02EE2A097A500085058C /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */; };
+		253C02F52A0D7E3E0085058C /* mainscreenviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */; };
+		253C02F72A0D842F0085058C /* segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F62A0D842F0085058C /* segment.swift */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
 		25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A4AFEE29C44576001227BB /* Assets.xcassets */; };
@@ -78,7 +83,12 @@
 		253C02DB2A06B2800085058C /* ReportCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCardView.swift; sourceTree = "<group>"; };
 		253C02E02A06BCE70085058C /* AddBudgetModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetModalView.swift; sourceTree = "<group>"; };
 		253C02E22A06D8550085058C /* CardExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpensesView.swift; sourceTree = "<group>"; };
-		2594AE602A04342D0067B752 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		253C02E42A0947100085058C /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		253C02E72A0969300085058C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
+		253C02E92A09732B0085058C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
+		253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainscreenviewmodel.swift; sourceTree = "<group>"; };
+		253C02F62A0D842F0085058C /* segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segment.swift; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
 		25A4AFEC29C44575001227BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,11 +166,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		25113E7E29EB511400991DB9 /* New Group */ = {
+		25113E7E29EB511400991DB9 /* Write */ = {
 			isa = PBXGroup;
 			children = (
+				253C02E42A0947100085058C /* WriteViewModel.swift */,
+				253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */,
+				253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */,
 			);
-			path = "New Group";
+			path = Write;
 			sourceTree = "<group>";
 		};
 		25113E7F29EB513700991DB9 /* modal */ = {
@@ -187,6 +200,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		253C02E62A09691C0085058C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				253C02E72A0969300085058C /* IncomeModel.swift */,
+				253C02F62A0D842F0085058C /* segment.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		25A4AFDE29C44575001227BB = {
 			isa = PBXGroup;
 			children = (
@@ -210,14 +232,15 @@
 		25A4AFE929C44575001227BB /* Liko_TA */ = {
 			isa = PBXGroup;
 			children = (
-				2594AE602A04342D0067B752 /* GoogleService-Info.plist */,
-				25113E7E29EB511400991DB9 /* New Group */,
+				253C02E62A09691C0085058C /* model */,
+				25113E7E29EB511400991DB9 /* Write */,
 				25113E7729EB4C9300991DB9 /* Component */,
 				25113E6629DDD8EF00991DB9 /* utils */,
 				2525DBBA29D4AD250083AB91 /* View */,
 				25A4AFEA29C44575001227BB /* Liko_TAApp.swift */,
 				25A4AFEC29C44575001227BB /* ContentView.swift */,
 				25A4AFEE29C44576001227BB /* Assets.xcassets */,
+				253C02E92A09732B0085058C /* GoogleService-Info.plist */,
 				25A4AFF029C44576001227BB /* Preview Content */,
 			);
 			path = Liko_TA;
@@ -370,7 +393,7 @@
 			files = (
 				25A4AFF229C44576001227BB /* Preview Assets.xcassets in Resources */,
 				25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */,
-				2594AE612A04342D0067B752 /* GoogleService-Info.plist in Resources */,
+				253C02EA2A09732B0085058C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,19 +419,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				253C02DC2A06B2800085058C /* ReportCardView.swift in Sources */,
+				253C02F52A0D7E3E0085058C /* mainscreenviewmodel.swift in Sources */,
+				253C02E52A0947100085058C /* WriteViewModel.swift in Sources */,
 				25113E8329EB523700991DB9 /* CardView.swift in Sources */,
 				25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */,
 				25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */,
 				25113E7229E0860B00991DB9 /* Textfield.swift in Sources */,
 				25A4AFED29C44575001227BB /* ContentView.swift in Sources */,
+				253C02EE2A097A500085058C /* SetupBudgetViewModel.swift in Sources */,
 				25113E6929DDD91500991DB9 /* Color.swift in Sources */,
 				2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */,
+				253C02F72A0D842F0085058C /* segment.swift in Sources */,
 				253C02E12A06BCE70085058C /* AddBudgetModalView.swift in Sources */,
 				25113E6D29DF364300991DB9 /* RegisterPage.swift in Sources */,
 				25113E8129EB515700991DB9 /* AddExpenseMainView.swift in Sources */,
 				25113E6B29DDEBEC00991DB9 /* OnboardingView.swift in Sources */,
 				25113E7429E0868100991DB9 /* InputIncomeView.swift in Sources */,
 				25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */,
+				253C02E82A0969300085058C /* IncomeModel.swift in Sources */,
 				25113E7B29EB4E6F00991DB9 /* RecommendationCardView.swift in Sources */,
 				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
 				25113E7929EB4D4B00991DB9 /* SisaUangCardView.swift in Sources */,

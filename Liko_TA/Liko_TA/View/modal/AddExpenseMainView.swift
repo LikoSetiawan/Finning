@@ -12,9 +12,14 @@ struct AddExpenseMainView: View {
     @Environment(\.dismiss) private var dismiss
     
     @FocusState private var isInputActive: Bool
+    @State var keterangan: String = ""
     @State var totalBudget : Int = 0
     @State var budgetCategory : String = ""
     @State var recomendationEnabled: Bool = false
+    
+    
+    
+//    var title : String
     @Binding var random:Bool
     
     var numberFormatter : NumberFormatter{
@@ -28,7 +33,7 @@ struct AddExpenseMainView: View {
     var body: some View {
         NavigationStack {
             VStack(){
-                Text("Kebutuhan")
+                Text("")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -40,7 +45,21 @@ struct AddExpenseMainView: View {
                     CardExpensesView()
                 }
                 Form{
-                    
+                    HStack{
+                        Text("Keterangan")
+                        Spacer()
+                        TextField("", text: $keterangan)
+                            .multilineTextAlignment(.trailing)                .focused($isInputActive)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Spacer()
+                                    Button("Done") {
+                                        isInputActive = false
+                                        random.toggle()
+                                    }
+                                }
+                            }
+                    }
                     HStack{
                         Text("Total")
                         Spacer()

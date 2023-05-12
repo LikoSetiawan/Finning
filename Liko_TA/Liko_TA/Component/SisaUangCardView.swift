@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SisaUangCardView: View {
     //
-    var income: Int
+//    @ObservedObject var vm_mainscreen = MainScreenViewModel()
+    
+    var valueincome: Int
     //
     var body: some View {
         ZStack(alignment: .leading){
@@ -28,9 +30,12 @@ struct SisaUangCardView: View {
                         .font(.system(size: 15))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("RP \(income),-")
+                    Text("RP \(self.valueincome),-")
                         .font(.system(size: 22))
                         .frame(maxWidth: .infinity, alignment: .leading)
+//                        .onAppear{
+//                            vm_mainscreen.observeIncome()
+//                        }
                     
 //                    Text("Anda telah menyimpan uang Rp.100.600.00 pada bulan Juni!")
 //                        .font(.system(size: 7))
@@ -53,7 +58,7 @@ struct SisaUangCardView: View {
 
 struct SisaUangCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SisaUangCardView(income: 10000)
+        SisaUangCardView(valueincome: 100000)
 //            .previewLayout(.fixed(width: 360, height: 125))
     }
 }

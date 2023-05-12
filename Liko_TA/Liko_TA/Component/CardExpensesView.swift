@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CardExpensesView: View {
+    
+//    var value: Int
+    
+    
     var body: some View {
         HStack{
             
@@ -40,7 +44,7 @@ struct CardExpensesView: View {
                         .font(.system(size: 15))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("RP 400.000,-")
+                    Text("RP. 0")
                         .font(.system(size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     

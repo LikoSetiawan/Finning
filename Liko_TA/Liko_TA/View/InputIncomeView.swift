@@ -10,18 +10,15 @@ import SwiftUI
 
 struct InputIncomeView: View {
     
+    @StateObject
+    var viewModel = WriteViewModel()
+    
+    @State var isNextViewActive = false
+    
     @State var income : Int = 0
-    
-    
-    var numberFormatter : NumberFormatter{
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.zeroSymbol = ""
-        return numberFormatter
-    }
-    
+
     var body: some View {
-            VStack{
+            NavigationStack{
                 VStack{
                     Text("Income")
                         .fontWeight(.bold)
@@ -34,12 +31,15 @@ struct InputIncomeView: View {
                 .padding(.top, 55)
                 Spacer()
                     .frame(height: 1)
-                TextField("cth: 2,000,000", value: $income, formatter: numberFormatter )
+                TextField("cth: 2,000,000", value: $viewModel.income, formatter: viewModel.numberFormatter )
                     .padding()
                     .textFieldStyle(OvalTextFieldStyle())
-                    .keyboardType(.numberPad)
+                    .keyboardType(.decimalPad)
                 Spacer()
-                NavigationLink(destination: SetupBudgetView().navigationBarBackButtonHidden(true)){
+                Button(action: {
+                    viewModel.saveData()
+                    isNextViewActive = true
+                }) {
                     Text("Continue")
                         .font(.headline)
                         .frame(width: 340, height: 50)
@@ -48,6 +48,10 @@ struct InputIncomeView: View {
                         .background(Color("interactiveColor"))
                         .cornerRadius(15)
                 }
+                NavigationLink(destination: SetupBudgetView().navigationBarBackButtonHidden(true), isActive: $isNextViewActive) {
+                    EmptyView()
+                            }
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

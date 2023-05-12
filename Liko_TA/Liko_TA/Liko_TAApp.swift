@@ -7,13 +7,15 @@
 
 import SwiftUI
 import FirebaseCore
+//import FirebaseDatabase
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
-
+//    let databaseUrl = "https://liko-ta-be5f1-default-rtdb.asia-southeast1.firebasedatabase.app"
+//    Database.database(url: databaseUrl).reference()
     return true
   }
 }

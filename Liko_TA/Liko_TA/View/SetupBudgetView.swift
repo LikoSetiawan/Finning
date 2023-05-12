@@ -7,71 +7,81 @@
 
 import SwiftUI
 
-
-struct Segment: Identifiable, Hashable{
-    var id = UUID()
-    
-    var title: String
-    var value: Int
-//    var recommended: Bool
-}
-
-class SegmentsViewModel: ObservableObject{
-    @Published var segments: [Segment] = [
-        Segment(title: "Makanan dan Minum", value: 0),
-        Segment(title: "Transportasi", value: 0),
-        Segment(title: "Hobby", value: 0),
-        Segment(title: "Kegiatan Kuliah", value: 0),
-    ]
-}
-
-
 struct SetupBudgetView: View {
     
-    @ObservedObject var viewModel = SegmentsViewModel()
+//    @ObservedObject var viewModel = SegmentsViewModel()
     @State private var isModalOpen = false
+    @ObservedObject var vm = SetupBudgetViewModel()
+    
+    
+//    @State private var segment1: Int = 0
+    
+    @State var isNextViewActive = false
     
     var body: some View {
-        VStack(){
-            VStack(spacing: 10){
-                Text("Budget")
+        NavigationStack{
+            VStack(spacing: 15){
+                Text("Masukkan Budget Kamu !")
                     .fontWeight(.bold)
-                    .font(.system(size: 31))
-                Text("Rp.0-")
+                    .font(.system(size: 27))
+                Text("Rp. \(vm.userIncome)")
                     .fontWeight(.bold)
-                    .font(.system(size: 31))
+                    .font(.system(size: 27))
+                    .onAppear {
+                        vm.fetchIncome()
+                    }
             }
-            .padding(.top, 55)
+            .padding(.top, 65)
             Spacer()
-                .frame(height: 1)
+                .frame(height: 25)
             
             //Table Listnya dibawah sini
-            
-            VStack{
-                List(viewModel.segments, id: \.title) { segment in
-                    Button(action: {
-                        self.isModalOpen = true
-                    }) {
-                        HStack {
-                            Text(segment.title)
-                            Spacer()
-                            Text("Rp. \(segment.value) -")
-                        }
-                    }
-                    .sheet(isPresented: $isModalOpen) {
-                        AddBudgetModalView(segment: SegmentsViewModel(), ramdom: .constant(true))
-                    }
-                    .buttonStyle(CustomButtonStyle(isSelected: true))
-                    
-                }
+            VStack(spacing : 15){
+                
+                Text("Food & Drink")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 17))
+                    .padding(.trailing, 225)
+                TextField("", value : $vm.segments1, formatter: NumberFormatter())
+                    .padding()
+                    .textFieldStyle(OvalTextFieldStyle())
+                
+                Text("Tranportasi")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 17))
+                    .padding(.trailing, 240)
+                TextField("", value : $vm.segments2, formatter: NumberFormatter())
+                    .padding()
+                    .textFieldStyle(OvalTextFieldStyle())
+                
+                Text("Hobby")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 17))
+                    .padding(.trailing, 280)
+                TextField("", value : $vm.segments3, formatter: NumberFormatter())
+                    .padding()
+                    .textFieldStyle(OvalTextFieldStyle())
+                
+                Text("Kegiatan Kuliah")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 17))
+                    .padding(.trailing, 210)
+                TextField("", value : $vm.segments4, formatter: NumberFormatter())
+                    .padding()
+                    .textFieldStyle(OvalTextFieldStyle())
                 
             }
             
-            
-            
-            
             Spacer()
-            NavigationLink(destination: MainScreen(segments: $viewModel.segments).navigationBarBackButtonHidden(true)){
+                .frame(height: 20)
+            Button(action: {
+//                vm.saveSegment()
+                vm.saveSegment1()
+                vm.saveSegment2()
+                vm.saveSegment3()
+                vm.saveSegment4()
+                isNextViewActive = true
+            }) {
                 Text("Continue")
                     .font(.headline)
                     .frame(width: 340, height: 50)
@@ -79,14 +89,18 @@ struct SetupBudgetView: View {
                     .foregroundColor(Color.black)
                     .background(Color("interactiveColor"))
                     .cornerRadius(15)
-                
             }
+            NavigationLink(destination: MainScreen().navigationBarBackButtonHidden(true), isActive: $isNextViewActive) {
+                EmptyView()
+                }
+            }
+        .frame(maxWidth:.infinity)
+        .background(Color("WhiteColor")).ignoresSafeArea()
+
 
         }
-        .frame(maxWidth:.infinity)
-        .background(Color("WhiteColor"))
     }
-}
+
 
     
 
@@ -94,6 +108,31 @@ struct SetupBudgetView: View {
 
 struct SetupBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        SetupBudgetView(viewModel: SegmentsViewModel())
+        SetupBudgetView()
+//        SetupBudgetView(viewModel: SegmentsViewModel())
     }
 }
+
+
+
+//            VStack{
+//                List(vm.segments, id: \.title) { segment in
+//                    Button(action: {
+//                        self.isModalOpen = true
+//                    }) {
+//                        HStack {
+//                            Text(segment.title)
+//                            Spacer()
+//                            Text("Rp. \(segment.value) -")
+//                        }
+//                    }
+//                    .sheet(isPresented: $isModalOpen) {
+//                        AddBudgetModalView(selectedSegment: $selectedSegment, ramdom: .constant(true))
+//                    }
+//                    .buttonStyle(CustomButtonStyle(isSelected: true))
+//
+//                }
+//                .onAppear {
+//                    vm.fetchIncome()
+//                }
+//            }
