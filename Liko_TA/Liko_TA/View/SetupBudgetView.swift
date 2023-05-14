@@ -76,10 +76,10 @@ struct SetupBudgetView: View {
                 .frame(height: 20)
             Button(action: {
 //                vm.saveSegment()
-                vm.saveSegment1()
-                vm.saveSegment2()
-                vm.saveSegment3()
-                vm.saveSegment4()
+                vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink")
+                vm.saveSegment(segmentS: vm.segments2, title: "Transportation")
+                vm.saveSegment(segmentS: vm.segments3, title: "Hobby")
+                vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs")
                 isNextViewActive = true
             }) {
                 Text("Continue")

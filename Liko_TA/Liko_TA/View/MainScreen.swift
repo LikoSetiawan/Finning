@@ -10,15 +10,13 @@ import SwiftUI
 struct MainScreen: View {
     
     var data : [Int] = Array(1...4)
-    var title = ["Food&Beverage", "Transportation", "Hobby", "College Activity"]
+
     let adaptiveColumns = [
-        
-        
         GridItem(.adaptive(minimum: 170))
     ]
     
     @State private var isModalOpen = false
-//    @Binding var segments : [Segment]
+    @State private var selectedSegment: Budget? = nil
     @State private var reportsButtonText = "See Reports"
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
@@ -59,9 +57,9 @@ struct MainScreen: View {
                             SisaUangCardView(valueincome: vm_mainscreen.updateIncome)
                         }
                         .padding(.top, 15)
-                        .onAppear{
-                            vm_mainscreen.observeIncome()
-                        }
+//                        .onAppear{
+//                            vm_mainscreen.observeIncome()
+//                        }
                         ZStack{
                             RoundedRectangle(cornerRadius:20)
                                 .fill(.white)
@@ -80,16 +78,17 @@ struct MainScreen: View {
                         LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                             ForEach(vm_mainscreen.segment, id: \.id) { segment in
                                 Button(action: {
+                                    selectedSegment = segment
                                     isModalOpen.toggle()
                                 }
                                 ){
                                     ZStack{
-                                        CardView(value: segment.segmentS, title: "")
+                                        CardView(value: segment.segmentS, title: segment.title)
                                     }
 
                                 }
                                 .sheet(isPresented: $isModalOpen) {
-                                    AddExpenseMainView(random: .constant(true))
+                                    AddExpenseMainView(selectedSegment: $selectedSegment, random: .constant(true))
                                 }
                                 .buttonStyle(CustomButtonStyle(isSelected: true))
                             }

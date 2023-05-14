@@ -29,7 +29,7 @@ struct ReportsView: View {
     
     let wine1 = WineLog(
         variety: "Cardonay",
-        quantity: 15,
+        quantity: 150,
         country: "Canada",
         entrydate: date(year: 2022, month: 7 , day: 23))
     
@@ -69,6 +69,7 @@ struct ReportsView: View {
                     }
                     .frame(width: 345, height: 10, alignment: .leading)
                     .padding(.top, 25)
+                    Divider()
 
                 }
                 

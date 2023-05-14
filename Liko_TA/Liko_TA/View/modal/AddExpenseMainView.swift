@@ -10,12 +10,11 @@ import SwiftUI
 struct AddExpenseMainView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Binding var selectedSegment: Budget?
     
     @FocusState private var isInputActive: Bool
-    @State var keterangan: String = ""
-    @State var totalBudget : Int = 0
-    @State var budgetCategory : String = ""
-    @State var recomendationEnabled: Bool = false
+    
+    @ObservedObject var vm_expenses = AddExpensesViewModel()
     
     
     
@@ -33,7 +32,7 @@ struct AddExpenseMainView: View {
     var body: some View {
         NavigationStack {
             VStack(){
-                Text("")
+                Text(selectedSegment?.title ?? "")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -42,13 +41,13 @@ struct AddExpenseMainView: View {
                     RoundedRectangle(cornerRadius:20)
                         .fill(.white)
                         .frame(width: 350, height: 150, alignment: .leading)
-                    CardExpensesView()
+                    CardExpensesView(value: selectedSegment?.segmentS ?? 0)
                 }
                 Form{
                     HStack{
                         Text("Keterangan")
                         Spacer()
-                        TextField("", text: $keterangan)
+                        TextField("cth: baju", text: $vm_expenses.keterangan)
                             .multilineTextAlignment(.trailing)                .focused($isInputActive)
                             .toolbar {
                                 ToolbarItemGroup(placement: .keyboard) {
@@ -63,7 +62,7 @@ struct AddExpenseMainView: View {
                     HStack{
                         Text("Total")
                         Spacer()
-                        TextField("Rp.0", value: $totalBudget, formatter: numberFormatter)
+                        TextField("Rp.0", value: $vm_expenses.expensesValue, formatter: numberFormatter)
                             .multilineTextAlignment(.trailing)                .focused($isInputActive)
                             .keyboardType(.numberPad)
                             .toolbar {
@@ -85,7 +84,11 @@ struct AddExpenseMainView: View {
                 
                 .navigationBarItems(trailing:
                                         Button("Add") {
-                    print("add")
+                    vm_expenses.saveExpenses()
+                    if (selectedSegment != nil ){
+                        vm_expenses.selectedSegment = selectedSegment
+                    }
+                    dismiss()
                     random.toggle()
                 }.foregroundColor(Color("interactiveColor")))
             }
@@ -96,6 +99,6 @@ struct AddExpenseMainView: View {
 
 struct AddExpenseMainView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseMainView(random: .constant(true))
+        AddExpenseMainView(selectedSegment: .constant(nil), random: .constant(true))
     }
 }

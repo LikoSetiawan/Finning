@@ -36,92 +36,29 @@ class SetupBudgetViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func saveSegment(segmentS: Int, title: String) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         
-//        let segmentsRef = Database.database().reference().child("users").child(uid).child("segmentData")
-//        segmentsRef.observe(.value) { snapshot in
-//            var fetchedSegments: [Segment] = []
-//            for child in snapshot.children {
-//                if let segmentSnapshot = child as? DataSnapshot,
-//                   let segmentData = segmentSnapshot.value as? [String: Any],
-//                   let title = segmentData["title"] as? String,
-//                   let value = segmentData["value"] as? Int {
-//                    let segment = Segment(title: title, value: value)
-//                    fetchedSegments.append(segment)
-//                }
-//            }
-//            DispatchQueue.main.async {
-//                self.segments = fetchedSegments
-//            }
-//        }
+        let ref = Database.database().reference().child("segments").child(uid).childByAutoId()
+        let savedBudget = Budget(segmentS: segmentS, title: title)
+        
+        ref.setValue(savedBudget.toDictionary()) { error, _ in
+            if let error = error {
+                print("Error saving segment data: \(error.localizedDescription)")
+            } else {
+                print("Successfully saved segment data")
+            }
+        }
     }
     
-    
-    
-    func saveSegment1() {
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
-        let savedBudget = Budget(segmentS: segments1, title: "Food & Drink")
-        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
-        incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
-                    if let error = error {
-                        print("Error saving income data: \(error.localizedDescription)")
 
-                    } else {
-                        print("Successfully saved Income data")
 
-                    }
-                }
+}
 
-    }
-
-    func saveSegment2() {
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
-        let savedBudget = Budget(segmentS: segments2, title: "Transportasion")
-        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
-           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
-                    if let error = error {
-                        print("Error saving income data: \(error.localizedDescription)")
-
-                    } else {
-                        print("Successfully saved Income data")
-
-                    }
-                }
-
-    }
-    func saveSegment3() {
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
-        let savedBudget = Budget(segmentS: segments3, title: "Hobby")
-        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
-           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
-                    if let error = error {
-                        print("Error saving income data: \(error.localizedDescription)")
-
-                    } else {
-                        print("Successfully saved Income data")
-
-                    }
-                }
-
-    }
-    func saveSegment4() {
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
-        let savedBudget = Budget(segmentS: segments4, title: "Colleague Expenses")
-        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
-           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
-                    if let error = error {
-                        print("Error saving income data: \(error.localizedDescription)")
-
-                    } else {
-                        print("Successfully saved Income data")
-
-                    }
-                }
-
-    }
 //        func saveSegment(){
 //        let ref = Database.database().reference()
 //        let uid = Auth.auth().currentUser?.uid
@@ -135,7 +72,7 @@ class SetupBudgetViewModel: ObservableObject {
 //            }
 //        }
 //    }
-    
+
 //    func saveSegment(){
 //        let ref = Database.database().reference()
 //        let uid = Auth.auth().currentUser?.uid
@@ -149,5 +86,70 @@ class SetupBudgetViewModel: ObservableObject {
 //            }
 //        }
 //    }
+
+//    func saveSegment1() {
+//        let uid = Auth.auth().currentUser?.uid
+//        let ref = Database.database().reference()
+//        let savedBudget = Budget(segmentS: segments1, title: "Food & Drink")
+//        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
+//        incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
+//                    if let error = error {
+//                        print("Error saving income data: \(error.localizedDescription)")
+//
+//                    } else {
+//                        print("Successfully saved Income data")
+//
+//                    }
+//                }
+//
+//    }
+//
+//    func saveSegment2() {
+//        let uid = Auth.auth().currentUser?.uid
+//        let ref = Database.database().reference()
+//        let savedBudget = Budget(segmentS: segments2, title: "Transportation")
+//        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
+//           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
+//                    if let error = error {
+//                        print("Error saving income data: \(error.localizedDescription)")
+//
+//                    } else {
+//                        print("Successfully saved Income data")
+//
+//                    }
+//                }
+//
+//    }
+//    func saveSegment3() {
+//        let uid = Auth.auth().currentUser?.uid
+//        let ref = Database.database().reference()
+//        let savedBudget = Budget(segmentS: segments3, title: "Hobby")
+//        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
+//           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
+//                    if let error = error {
+//                        print("Error saving income data: \(error.localizedDescription)")
+//
+//                    } else {
+//                        print("Successfully saved Income data")
+//
+//                    }
+//                }
+//
+//    }
+//    func saveSegment4() {
+//        let uid = Auth.auth().currentUser?.uid
+//        let ref = Database.database().reference()
+//        let savedBudget = Budget(segmentS: segments4, title: "Colleague Needs")
+//        let incomeRef = ref.child("segments").child(uid!).childByAutoId()
+//           incomeRef.setValue(savedBudget.toDictionary()){ error, _ in
+//                    if let error = error {
+//                        print("Error saving income data: \(error.localizedDescription)")
+//
+//                    } else {
+//                        print("Successfully saved Income data")
+//
+//                    }
+//                }
+//
+//    }
     
-}

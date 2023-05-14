@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardExpensesView: View {
     
-//    var value: Int
+    var value: Int
     
     
     var body: some View {
@@ -29,7 +29,7 @@ struct CardExpensesView: View {
                     .trim(from: 0.25, to: 0.75) //nanti to nya dari batas dari budget yang di set - data total pengeluaran
                     .stroke(Color.orange, lineWidth: 15)
                     .frame(width: (UIScreen.main.bounds.width - 100) / 3, height: (UIScreen.main.bounds.width - 90) / 3)
-//                    .rotationEffect(.degrees(-90))
+                    .rotationEffect(Angle(degrees: -90))
                 Text("50%")
                     .frame(maxWidth: 100, alignment: .center)
                     .font(.system(size: 15))
@@ -44,7 +44,7 @@ struct CardExpensesView: View {
                         .font(.system(size: 15))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("RP. 0")
+                    Text("Rp. \(self.value)")
                         .font(.system(size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -74,6 +74,6 @@ struct CardExpensesView: View {
 
 struct CardExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        CardExpensesView()
+        CardExpensesView(value: 0)
     }
 }

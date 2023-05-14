@@ -40,6 +40,8 @@
 		253C02EE2A097A500085058C /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */; };
 		253C02F52A0D7E3E0085058C /* mainscreenviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */; };
 		253C02F72A0D842F0085058C /* segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F62A0D842F0085058C /* segment.swift */; };
+		253C02F92A0FB9870085058C /* expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F82A0FB9870085058C /* expenses.swift */; };
+		253C02FB2A0FBAE30085058C /* addexpensesviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
 		25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A4AFEE29C44576001227BB /* Assets.xcassets */; };
@@ -89,6 +91,8 @@
 		253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainscreenviewmodel.swift; sourceTree = "<group>"; };
 		253C02F62A0D842F0085058C /* segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segment.swift; sourceTree = "<group>"; };
+		253C02F82A0FB9870085058C /* expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = expenses.swift; sourceTree = "<group>"; };
+		253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addexpensesviewmodel.swift; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
 		25A4AFEC29C44575001227BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				253C02E42A0947100085058C /* WriteViewModel.swift */,
 				253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */,
 				253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */,
+				253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			children = (
 				253C02E72A0969300085058C /* IncomeModel.swift */,
 				253C02F62A0D842F0085058C /* segment.swift */,
+				253C02F82A0FB9870085058C /* expenses.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -438,7 +444,9 @@
 				25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */,
 				253C02E82A0969300085058C /* IncomeModel.swift in Sources */,
 				25113E7B29EB4E6F00991DB9 /* RecommendationCardView.swift in Sources */,
+				253C02F92A0FB9870085058C /* expenses.swift in Sources */,
 				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
+				253C02FB2A0FBAE30085058C /* addexpensesviewmodel.swift in Sources */,
 				25113E7929EB4D4B00991DB9 /* SisaUangCardView.swift in Sources */,
 				253C02E32A06D8550085058C /* CardExpensesView.swift in Sources */,
 			);

@@ -25,13 +25,19 @@ struct CardView: View {
                         .trim(from: 0, to: 1)
                         .stroke(Color("YellowColor").opacity(0.25), lineWidth: 10)
                         .frame(width: 60, height: 60)
-//                        .frame(width: (UIScreen.main.bounds.width - 150) / 4, height: (UIScreen.main.bounds.width - 220) / 3)
 
                     Circle() //circle depan buat tau datanya berapa
-                        .trim(from: 0.25, to: 1) //nanti to nya dari batas dari budget yang di set - data total pengeluaran
+                        .trim(from: 0.30, to: 1) //nanti to nya dari batas dari budget yang di set - data total pengeluaran
+//                    .trim(from: 1 - min(max(percentage, 0), 100) / 100, to: 1)
                         .stroke(Color("YellowColor"), lineWidth: 10)
                         .frame(width: 60, height: 60)
-//                        .frame(width: (UIScreen.main.bounds.width - 150) / 4, height: (UIScreen.main.bounds.width - 220) / 3)
+                        .rotationEffect(Angle(degrees: -90)) // rotate the circle counterclockwise by 90 degrees to start at 6 o'clock
+                    
+                    Text("100%")
+                        .frame(maxWidth: 100, alignment: .center)
+                        .font(.system(size: 13))
+                        .padding(.trailing, 65)
+
                 }
                 .padding(.top)
 //                .foregroundColor(colors[Circle])
