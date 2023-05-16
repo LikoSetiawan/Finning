@@ -11,11 +11,15 @@ struct Budget: Identifiable, Hashable {
     var id: String?
     var segmentS: Int
     var title: String
+    var percentage: Double
+    var originalSegmentS: Int
    
     func toDictionary() -> [String: Any] {
         return [
             "segment1": segmentS,
-            "title" : title
+            "title" : title,
+            "percentage" : percentage,
+            "originalSegmentS": originalSegmentS
         ]
     }
 

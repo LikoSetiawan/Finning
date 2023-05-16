@@ -14,6 +14,7 @@ class MainScreenViewModel : ObservableObject {
     @Published var updateIncome: Int = 0
     @Published var segment: [Budget] = []
     @Published var updateExp: Int = 0
+    @Published var expenses: [Expenses] = []
     
 
     
@@ -29,14 +30,23 @@ class MainScreenViewModel : ObservableObject {
             
             ref.observe(DataEventType.value, with: { snapshot in
                 var exp: Int = 0
+                var result: [Expenses] = []
+                
+                
                 for child in snapshot.children {
                     if let childSnapshot = child as? DataSnapshot,
                        let dict = childSnapshot.value as? [String:Any],
+                       let ket = dict["expenses"] as? String,
                        let exps = dict["expensesvalue"] as? Int {
+                        let fetch = Expenses(id: childSnapshot.key, expenses: ket, expensesvalue: exps)
+                        result.append(fetch)
+                        
                         exp += exps
                     }
                 }
                 self.updateExp = exp
+                
+                self.expenses = result
             })
         }
         
@@ -66,8 +76,10 @@ class MainScreenViewModel : ObservableObject {
                 if let childSnapshot = child as? DataSnapshot,
                    let dict = childSnapshot.value as? [String:Any],
                    let segmentS = dict["segment1"] as? Int,
-                   let title = dict["title"] as? String {
-                    let budget = Budget(id: childSnapshot.key, segmentS: segmentS, title: title)
+                   let title = dict["title"] as? String,
+                let percentage = dict["percentage"] as? Double,
+                let originalSegmentS = dict["originalSegmentS"] as? Int{
+                    let budget = Budget(id: childSnapshot.key, segmentS: segmentS, title: title, percentage: percentage, originalSegmentS: originalSegmentS)
                     segments.append(budget)
                 }
             }
@@ -75,6 +87,19 @@ class MainScreenViewModel : ObservableObject {
                 self.segment = segments
             }
         }
+    }
+    
+    func recommendation() -> Int {
+        let calendar = Calendar.current
+        let date = Date()
+        let dayOfMonth = calendar.component(.day, from: date)
+        let updateIncome = self.updateIncome
+        
+        let daysInMonth = calendar.range(of: .day, in: .month, for: date)!.count
+        let totalIncome = updateIncome - self.updateExp
+        let dailyRecommendation = totalIncome / (daysInMonth - dayOfMonth + 1)
+        
+        return dailyRecommendation
     }
 
     

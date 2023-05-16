@@ -7,7 +7,12 @@
 
 import SwiftUI
 
+    
+
 struct RecommendationCardView: View {
+    
+    var recommendation: Int
+    
     var body: some View {
         ZStack(alignment: .trailing){
             Image("main screen-rekomendasi pengeluaran")
@@ -25,7 +30,7 @@ struct RecommendationCardView: View {
                     .foregroundColor(.black)
                     
 //                Spacer()
-                Text("RP 33.000,-")
+                Text("RP \(self.recommendation),-")
                     .font(.system(size: 23))
                     .foregroundColor(.black)
                 Spacer()
@@ -44,7 +49,7 @@ struct RecommendationCardView: View {
 
 struct RecommendationCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationCardView()
+        RecommendationCardView(recommendation: 0)
             .frame(width: .infinity , height: 100)
     }
 }

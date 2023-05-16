@@ -41,7 +41,10 @@ struct AddExpenseMainView: View {
                     RoundedRectangle(cornerRadius:20)
                         .fill(.white)
                         .frame(width: 350, height: 150, alignment: .leading)
-                    CardExpensesView(value: selectedSegment?.segmentS ?? 0)
+                    if let percentage = selectedSegment?.percentage {
+                        CardExpensesView(value: selectedSegment?.segmentS ?? 0, percentage: percentage)
+                    }
+//                    CardExpensesView(value: selectedSegment?.segmentS ?? 0, percentage: selectedSegment.percentage!)
                 }
                 Form{
                     HStack{
@@ -70,7 +73,7 @@ struct AddExpenseMainView: View {
                                     Spacer()
                                     Button("Done") {
                                         isInputActive = false
-                                        random.toggle()
+//                                        random.toggle()
                                     }
                                 }
                             }

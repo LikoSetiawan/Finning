@@ -10,6 +10,7 @@ import SwiftUI
 struct CardExpensesView: View {
     
     var value: Int
+    var percentage: Double
     
     
     var body: some View {
@@ -26,11 +27,19 @@ struct CardExpensesView: View {
                 
                 
                 Circle() //circle depan buat tau datanya berapa
-                    .trim(from: 0.25, to: 0.75) //nanti to nya dari batas dari budget yang di set - data total pengeluaran
+                    .trim(from: 0, to: CGFloat(percentage / 100))
                     .stroke(Color.orange, lineWidth: 15)
                     .frame(width: (UIScreen.main.bounds.width - 100) / 3, height: (UIScreen.main.bounds.width - 90) / 3)
                     .rotationEffect(Angle(degrees: -90))
-                Text("50%")
+//
+//                Circle()
+//                    .trim(from: 0, to: CGFloat(percentage / 100))
+//                    .stroke(Color("YellowColor"), lineWidth: 10)
+//                    .frame(width: 60, height: 60)
+//                    .rotationEffect(Angle(degrees: -90))
+                
+                
+                Text(String(format: "%.0f%%", percentage))
                     .frame(maxWidth: 100, alignment: .center)
                     .font(.system(size: 15))
                 
@@ -48,9 +57,9 @@ struct CardExpensesView: View {
                         .font(.system(size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text("Pengeluaran: -Rp.0")
-                        .font(.system(size: 13))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+//                    Text("Pengeluaran: -Rp.0")
+//                        .font(.system(size: 13))
+//                        .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
                     
                     
@@ -74,6 +83,6 @@ struct CardExpensesView: View {
 
 struct CardExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        CardExpensesView(value: 0)
+        CardExpensesView(value: 0, percentage: 0)
     }
 }

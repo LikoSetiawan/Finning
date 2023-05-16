@@ -170,7 +170,7 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		25113E7E29EB511400991DB9 /* Write */ = {
+		25113E7E29EB511400991DB9 /* viewmodel */ = {
 			isa = PBXGroup;
 			children = (
 				253C02E42A0947100085058C /* WriteViewModel.swift */,
@@ -178,7 +178,7 @@
 				253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */,
 				253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */,
 			);
-			path = Write;
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 		25113E7F29EB513700991DB9 /* modal */ = {
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				253C02E62A09691C0085058C /* model */,
-				25113E7E29EB511400991DB9 /* Write */,
+				25113E7E29EB511400991DB9 /* viewmodel */,
 				25113E7729EB4C9300991DB9 /* Component */,
 				25113E6629DDD8EF00991DB9 /* utils */,
 				2525DBBA29D4AD250083AB91 /* View */,

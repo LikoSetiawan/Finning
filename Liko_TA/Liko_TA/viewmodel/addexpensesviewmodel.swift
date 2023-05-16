@@ -48,15 +48,23 @@ class AddExpensesViewModel: ObservableObject{
         
         let databaseRef = Database.database().reference()
         
+        //ngambil segment apa yang dipencet
         guard let budget = selectedSegment else {
                 return
             }
             
             // Update the segment1 value of the Budget object
-        let updatedSegment = budget.segmentS - self.expensesValue
+            let updatedSegment = budget.segmentS - self.expensesValue
+        
+        // Calculate the new percentage based on the updated segment value
+        let newPercentage = Double(updatedSegment) / Double(budget.originalSegmentS) * 100
             
             // Construct the update dictionary
-            let updateDict = ["segment1": updatedSegment]
+        let updateDict: [String: Any] = [
+                "segment1": updatedSegment,
+                "percentage": newPercentage
+            ]
+        
             
             // Update the segment1 value in the database
             databaseRef.child("segments").child(uid).child(budget.id!).updateChildValues(updateDict) { (error, ref) in
@@ -69,7 +77,6 @@ class AddExpensesViewModel: ObservableObject{
         
         
     }
-
     
     
     func saveExpenses(){

@@ -14,7 +14,12 @@ struct SetupBudgetView: View {
     @ObservedObject var vm = SetupBudgetViewModel()
     
     
-//    @State private var segment1: Int = 0
+    var numberFormatter : NumberFormatter{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.zeroSymbol = ""
+        return numberFormatter
+    }
     
     @State var isNextViewActive = false
     
@@ -42,7 +47,7 @@ struct SetupBudgetView: View {
                     .fontWeight(.semibold)
                     .font(.system(size: 17))
                     .padding(.trailing, 225)
-                TextField("", value : $vm.segments1, formatter: NumberFormatter())
+                TextField("Rec:1.500.000", value : $vm.segments1, formatter: numberFormatter)
                     .padding()
                     .textFieldStyle(OvalTextFieldStyle())
                 
@@ -50,7 +55,7 @@ struct SetupBudgetView: View {
                     .fontWeight(.semibold)
                     .font(.system(size: 17))
                     .padding(.trailing, 240)
-                TextField("", value : $vm.segments2, formatter: NumberFormatter())
+                TextField("Rec:500.000", value : $vm.segments2, formatter: numberFormatter)
                     .padding()
                     .textFieldStyle(OvalTextFieldStyle())
                 
@@ -58,7 +63,7 @@ struct SetupBudgetView: View {
                     .fontWeight(.semibold)
                     .font(.system(size: 17))
                     .padding(.trailing, 280)
-                TextField("", value : $vm.segments3, formatter: NumberFormatter())
+                TextField("Rec:600.000", value : $vm.segments3, formatter: numberFormatter)
                     .padding()
                     .textFieldStyle(OvalTextFieldStyle())
                 
@@ -66,7 +71,7 @@ struct SetupBudgetView: View {
                     .fontWeight(.semibold)
                     .font(.system(size: 17))
                     .padding(.trailing, 210)
-                TextField("", value : $vm.segments4, formatter: NumberFormatter())
+                TextField("Rec:900.000", value : $vm.segments4, formatter: numberFormatter)
                     .padding()
                     .textFieldStyle(OvalTextFieldStyle())
                 
@@ -76,10 +81,10 @@ struct SetupBudgetView: View {
                 .frame(height: 20)
             Button(action: {
 //                vm.saveSegment()
-                vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink")
-                vm.saveSegment(segmentS: vm.segments2, title: "Transportation")
-                vm.saveSegment(segmentS: vm.segments3, title: "Hobby")
-                vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs")
+                vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink", percentage: 100, originalSegmentS: vm.segments1)
+                vm.saveSegment(segmentS: vm.segments2, title: "Transportation", percentage: 100, originalSegmentS: vm.segments2)
+                vm.saveSegment(segmentS: vm.segments3, title: "Hobby", percentage: 100, originalSegmentS: vm.segments3)
+                vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs", percentage: 100, originalSegmentS: vm.segments4)
                 isNextViewActive = true
             }) {
                 Text("Continue")

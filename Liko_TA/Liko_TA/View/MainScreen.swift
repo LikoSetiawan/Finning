@@ -15,6 +15,9 @@ struct MainScreen: View {
         GridItem(.adaptive(minimum: 170))
     ]
     
+    
+    private let colors = [Color("GreenColor"),Color("PurpleColor"), Color("RedColor"), Color("YellowColor")]
+    
     @State private var isModalOpen = false
     @State private var selectedSegment: Budget? = nil
     @State private var reportsButtonText = "See Reports"
@@ -64,7 +67,7 @@ struct MainScreen: View {
                             RoundedRectangle(cornerRadius:20)
                                 .fill(.white)
                                 .frame(width: 360, height: 80, alignment: .leading)
-                            RecommendationCardView()
+                            RecommendationCardView(recommendation: vm_mainscreen.recommendation())
                         }
                         VStack(){
                             Text("Budget")
@@ -83,7 +86,7 @@ struct MainScreen: View {
                                 }
                                 ){
                                     ZStack{
-                                        CardView(value: segment.segmentS, title: segment.title)
+                                        CardView(value: segment.segmentS, title: segment.title, percentage: segment.percentage)
                                     }
 
                                 }

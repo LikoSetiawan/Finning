@@ -38,13 +38,13 @@ class SetupBudgetViewModel: ObservableObject {
         }
     }
     
-    func saveSegment(segmentS: Int, title: String) {
+    func saveSegment(segmentS: Int, title: String, percentage: Double, originalSegmentS: Int) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
         let ref = Database.database().reference().child("segments").child(uid).childByAutoId()
-        let savedBudget = Budget(segmentS: segmentS, title: title)
+        let savedBudget = Budget(segmentS: segmentS, title: title, percentage: percentage, originalSegmentS: originalSegmentS)
         
         ref.setValue(savedBudget.toDictionary()) { error, _ in
             if let error = error {
