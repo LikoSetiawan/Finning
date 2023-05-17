@@ -23,16 +23,18 @@ class MainScreenViewModel : ObservableObject {
     @Published var topupinc: Int = 0
     
 
-    
-    
-    
+    @Published var selectedMonthIndex: Int = Calendar.current.component(.month, from: Date()) - 1
+
     
     init(){
         fetchSegment()
+        updateDataForMonth(String(selectedMonthIndex))
+//        updateDataForMonth(selectedMonth)
         
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference().child("expenses").child(uid)
+            let time = Date()
             
             ref.observe(DataEventType.value, with: { snapshot in
                 var exp: Int = 0
@@ -44,7 +46,7 @@ class MainScreenViewModel : ObservableObject {
                        let dict = childSnapshot.value as? [String:Any],
                        let ket = dict["expenses"] as? String,
                        let exps = dict["expensesvalue"] as? Int {
-                        let fetch = Expenses(id: childSnapshot.key, expenses: ket, expensesvalue: exps)
+                        let fetch = Expenses(id: childSnapshot.key, expenses: ket, expensesvalue: exps, timeAdded: time)
                         result.append(fetch)
                         
                         exp += exps
@@ -141,54 +143,92 @@ class MainScreenViewModel : ObservableObject {
     
     
     
-//    func fetchSegment() {
-//        guard let currentUserID = Auth.auth().currentUser?.uid else {
-//
-//            return
-//        }
-//
-//        let databaseRef =  Database.database().reference()
-//
-//        databaseRef.child("segments").child(currentUserID).observe(.value) { [weak self] (snapshot) in
-//            guard let self = self else { return }
-//
-//            var results: [Budget] = []
-//
-//            for child in snapshot.children {
-//                if let childSnapshot = child as? DataSnapshot,
-//                   let dict = childSnapshot.value as? [String: Any],
-//                   let segment1 = dict["segment1"] as? Int,
-//                   let title = dict["title"] as? String{
-//                    let allsegment = Budget(id: childSnapshot.key, segmentS: segment1, title: title)
-//                    results.append(allsegment)
-//                }
-//            }
-//
-//            self.segment = results
-//        }
-//    }
-    
+    func updateDataForMonth(_ selectedMonth: String) {
+        // Clear existing data arrays
+        expenses = []
+        topups = []
+        updateExp = 0
+        topupinc = 0
+        updateIncome = 0
+       
+
+       
+        if let user = Auth.auth().currentUser {
+            let uid = user.uid
+            let ref = Database.database().reference().child("expenses").child(uid)
+            let time = Date()
+            
+            ref.observe(DataEventType.value, with: { snapshot in
+                var exp: Int = 0
+                var result: [Expenses] = []
+                
+                for child in snapshot.children {
+                    if let childSnapshot = child as? DataSnapshot,
+                       let dict = childSnapshot.value as? [String:Any],
+                       let ket = dict["expenses"] as? String,
+                       let exps = dict["expensesvalue"] as? Int {
+                        let fetch = Expenses(id: childSnapshot.key, expenses: ket, expensesvalue: exps, timeAdded: time)
+                        result.append(fetch)
+                        
+                        exp += exps
+                    }
+                }
+                self.updateExp = exp
+                
+                
+                let filteredExpenses = result.filter { expense in
+                    let calendar = Calendar.current
+                    let expenseMonth = calendar.component(.month, from: expense.timeAdded)
+                    return expenseMonth == self.selectedMonthIndex + 1 // months are 1-based
+                }
+                
+                self.expenses = filteredExpenses
+                
+                let totalExpensesValue = filteredExpenses.reduce(0) { $0 + $1.expensesvalue }
+                self.updateExp = totalExpensesValue
+                
+                
+            })
+        }
+        
+       
+        if let user = Auth.auth().currentUser {
+            let uid = user.uid
+            let ref = Database.database().reference().child("topupincome").child(uid)
+            
+            ref.observe(DataEventType.value, with: { snapshot in
+                var topU: Int = 0
+                var result: [Topup] = []
+                
+                for child in snapshot.children {
+                    if let childSnapshot = child as? DataSnapshot,
+                       let dict = childSnapshot.value as? [String:Any],
+                       let ket = dict["topup"] as? String,
+                       let topUs = dict["topupvalue"] as? Int {
+                        let fetch = Topup(id: childSnapshot.key, topup: ket, topupvalue: topUs, timeAdded: Date())
+                        result.append(fetch)
+                        
+                        topU += topUs
+                    }
+                }
+                self.topupinc = topU
+                
+                
+                let filteredTopups = result.filter { topup in
+                    let calendar = Calendar.current
+                    let topupMonth = calendar.component(.month, from: topup.timeAdded)
+                    return topupMonth == self.selectedMonthIndex + 1 // months are 1-based
+                }
+                
+                self.topups = filteredTopups
+                
+                let totalTopupsValue = filteredTopups.reduce(0) { $0 + $1.topupvalue }
+                self.topupinc = totalTopupsValue
+            })
+        }
+    }
     
     
     
     
 }
-
-
-
-
-//    func observeIncome() {
-//            guard let uid = Auth.auth().currentUser?.uid else {
-//                return
-//            }
-//
-//        let ref = Database.database().reference().child("users").child(uid).child("incomeData").child("income")
-//
-//            ref.observe(.value) { snapshot in
-//                if let inc = snapshot.value as? Int {
-//                    DispatchQueue.main.async {
-//                        self.updateIncome = inc
-//                    }
-//                }
-//            }
-//        }

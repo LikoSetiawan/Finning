@@ -13,6 +13,7 @@ struct SetupBudgetView: View {
     @State private var isModalOpen = false
     @ObservedObject var vm = SetupBudgetViewModel()
     
+    @State private var showAlert = false
     
     var numberFormatter : NumberFormatter{
         let numberFormatter = NumberFormatter()
@@ -80,12 +81,16 @@ struct SetupBudgetView: View {
             Spacer()
                 .frame(height: 20)
             Button(action: {
-//                vm.saveSegment()
-                vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink", percentage: 100, originalSegmentS: vm.segments1)
-                vm.saveSegment(segmentS: vm.segments2, title: "Transportation", percentage: 100, originalSegmentS: vm.segments2)
-                vm.saveSegment(segmentS: vm.segments3, title: "Hobby", percentage: 100, originalSegmentS: vm.segments3)
-                vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs", percentage: 100, originalSegmentS: vm.segments4)
-                isNextViewActive = true
+                let totalSegments = vm.segments1 + vm.segments2 + vm.segments3 + vm.segments4
+                if totalSegments <= vm.userIncome {
+                    vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink", percentage: 100, originalSegmentS: vm.segments1)
+                    vm.saveSegment(segmentS: vm.segments2, title: "Transportation", percentage: 100, originalSegmentS: vm.segments2)
+                    vm.saveSegment(segmentS: vm.segments3, title: "Hobby", percentage: 100, originalSegmentS: vm.segments3)
+                    vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs", percentage: 100, originalSegmentS: vm.segments4)
+                    isNextViewActive = true
+                } else {
+                    showAlert = true
+                }
             }) {
                 Text("Continue")
                     .font(.headline)
@@ -94,6 +99,17 @@ struct SetupBudgetView: View {
                     .foregroundColor(Color.black)
                     .background(Color("interactiveColor"))
                     .cornerRadius(15)
+            }
+            .alert(isPresented: $showAlert){
+                Alert(
+                    title: Text("Budget Berlebih"),
+                    message: Text("Budget Melebihi Income!"),
+                    dismissButton: .default(
+                        Text("OK")
+                            .foregroundColor(Color("interactiveColor"))
+                    )
+                )
+                
             }
             NavigationLink(destination: MainScreen().navigationBarBackButtonHidden(true), isActive: $isNextViewActive) {
                 EmptyView()
@@ -141,3 +157,10 @@ struct SetupBudgetView_Previews: PreviewProvider {
 //                    vm.fetchIncome()
 //                }
 //            }
+
+
+//                vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink", percentage: 100, originalSegmentS: vm.segments1)
+//                vm.saveSegment(segmentS: vm.segments2, title: "Transportation", percentage: 100, originalSegmentS: vm.segments2)
+//                vm.saveSegment(segmentS: vm.segments3, title: "Hobby", percentage: 100, originalSegmentS: vm.segments3)
+//                vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs", percentage: 100, originalSegmentS: vm.segments4)
+//                isNextViewActive = true

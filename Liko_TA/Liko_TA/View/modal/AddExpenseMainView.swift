@@ -14,6 +14,8 @@ struct AddExpenseMainView: View {
     
     @FocusState private var isInputActive: Bool
     
+    @State private var showAlert = false
+    
     @ObservedObject var vm_expenses = AddExpensesViewModel()
     
     @State private var foodChoices = ["Makanan","Minuman","Makanan Ringan","Lain - Lain"]
@@ -146,15 +148,34 @@ struct AddExpenseMainView: View {
                         // Set the keterangan value to the first data of the array
                         vm_expenses.keterangan = pickerChoices.first ?? ""
                     }
-                    vm_expenses.saveExpenses()
-                    if (selectedSegment != nil ){
-                        vm_expenses.selectedSegment = selectedSegment
+                    if let selectedSegmentValue = selectedSegment?.segmentS {
+                        if vm_expenses.expensesValue > selectedSegmentValue {
+                            showAlert = true
+                        } else {
+                            vm_expenses.saveExpenses()
+                            if selectedSegment != nil {
+                                vm_expenses.selectedSegment = selectedSegment
+                            }
+                            dismiss()
+                            random.toggle()
+                        }
                     }
-                    dismiss()
-                    random.toggle()
+//                    vm_expenses.saveExpenses()
+//                    if (selectedSegment != nil ){
+//                        vm_expenses.selectedSegment = selectedSegment
+//                    }
+//                    dismiss()
+//                    random.toggle()
                 }.foregroundColor(Color("interactiveColor")))
             }
             .background(Color("WhiteColor").ignoresSafeArea())
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Kebanyakan"),
+                    message: Text("Budget kamu kurang untuk menambah pengeluaran!"),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }

@@ -12,11 +12,16 @@ struct Expenses: Identifiable, Hashable {
     var id: String?
     var expenses: String
     var expensesvalue: Int
+    var timeAdded: Date
    
     func toDictionary() -> [String: Any] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: timeAdded)
         return [
             "expenses": expenses,
-            "expensesvalue" : expensesvalue
+            "expensesvalue" : expensesvalue,
+            "timeAdded": dateString
         ]
     }
 

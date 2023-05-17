@@ -19,8 +19,15 @@ struct ReportsView: View {
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
     
-    @State private var selectedMonthIndex = 0
-        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+//    @State private var selectedMonthIndex: Int = Calendar.current.component(.month, from: Date()) - 1 {
+//        didSet {
+//                let selectedMonth = months[selectedMonthIndex]
+//                // Perform data updates based on the selected month
+//                updateDataForMonth(selectedMonth)
+//            }
+//    }// Get the current month index
+    
+    let months = Calendar.current.monthSymbols
     
     let text1 = WineLog(
         text: "Income"
@@ -44,12 +51,16 @@ struct ReportsView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Picker("Select Month", selection: $selectedMonthIndex) {
+                        Picker("Select Month", selection: $vm_mainscreen.selectedMonthIndex) {
                             ForEach(0..<months.count) { index in
                                 Text(months[index]).tag(index)
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
+                        .onChange(of: vm_mainscreen.selectedMonthIndex) { newValue in
+                            let selectedMonth = months[newValue]
+                            vm_mainscreen.updateDataForMonth(selectedMonth)
+                        }
                     }
                     .padding()
                     
@@ -74,7 +85,14 @@ struct ReportsView: View {
                             RoundedRectangle(cornerRadius:20)
                                 .fill(.white)
                                 .frame(width: 180, height: 90, alignment: .leading)
-                            ReportCardView(totalexpenses: vm_mainscreen.topupinc, totaltitle: "Total Income")
+                            VStack(spacing: 15){
+                                Text("Total Income")
+                                    .font(.system(size: 16))
+                                Text("Rp. \(vm_mainscreen.topupinc) ,- ")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.bold)
+                                
+                            }
                         }
                         .padding(.leading, 10)
                         Spacer()
@@ -82,7 +100,14 @@ struct ReportsView: View {
                             RoundedRectangle(cornerRadius:20)
                                 .fill(.white)
                                 .frame(width: 180, height: 90, alignment: .leading)
-                            ReportCardView(totalexpenses: vm_mainscreen.updateExp, totaltitle: "Total Expenses")
+                            VStack(spacing: 15){
+                                Text("Total Expenses")
+                                    .font(.system(size: 16))
+                                Text("Rp. \(vm_mainscreen.updateExp) ,- ")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.bold)
+                                
+                            }
                         }
                         .padding(.trailing, 10)
                     }

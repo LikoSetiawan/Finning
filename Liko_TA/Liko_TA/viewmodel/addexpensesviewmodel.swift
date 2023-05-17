@@ -83,13 +83,15 @@ class AddExpensesViewModel: ObservableObject{
     func saveExpenses(){
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        var savedExpenses = Expenses(expenses: "", expensesvalue: expensesValue)
+        let time = Date()
+        
+        var savedExpenses = Expenses(expenses: "", expensesvalue: expensesValue, timeAdded: time)
         
         // If "Lain - Lain" is in picker choices but not selected, use manual input
             if keterangan == "Lain - Lain" {
-                savedExpenses = Expenses(expenses: manualInput, expensesvalue: expensesValue)
+                savedExpenses = Expenses(expenses: manualInput, expensesvalue: expensesValue, timeAdded: time)
             } else {
-                savedExpenses = Expenses(expenses: keterangan, expensesvalue: expensesValue)
+                savedExpenses = Expenses(expenses: keterangan, expensesvalue: expensesValue, timeAdded: time)
             }
         
         

@@ -32,7 +32,14 @@ struct Liko_TAApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginPage()
+            if UserDefaults.standard.bool(forKey: "hasShownOnboarding") {
+                LoginPage()
+            } else {
+                OnboardingView()
+                    .onAppear {
+                        UserDefaults.standard.set(true, forKey: "hasShownOnboarding")
+                    }
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ class WriteViewModel : ObservableObject{
     
     
     @Published var income: Int = 0
-//    @Published var incomeData: [Income] = []
+    @Published var incomeData: [Income] = []
     
     var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -38,9 +38,14 @@ class WriteViewModel : ObservableObject{
             print("User is not authenticated")
             return
         }
+        let time = Date()
         
-        let incomeRef = ref.child("users").child(user.uid).child("incomeData").child("income")
-           incomeRef.setValue(income){ error, _ in
+        let savedIncome = Income(income: income ,timeAdded: time)
+        
+        let incomeRef = ref.child("users").child(user.uid).child("incomeData")
+        
+        
+        incomeRef.setValue(savedIncome.toDictionary()){ error, _ in
                     if let error = error {
                         print("Error saving income data: \(error.localizedDescription)")
                         

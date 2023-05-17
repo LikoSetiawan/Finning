@@ -26,7 +26,7 @@ struct TopUpIncomeView: View {
     
     @ObservedObject var viewmodel_mc = MainScreenViewModel()
     
-
+    
 
     
     var body: some View {
@@ -50,18 +50,28 @@ struct TopUpIncomeView: View {
                         Text("Category")
                         Spacer()
                         
-                        Picker("", selection: $vm_topup.topupK){
-                            ForEach(vm_topup.topupC, id: \.self){ item in
-                                Text(item).tag(item)
+                        if vm_topup.topupC.contains("Lain - Lain") {
+                            if vm_topup.topupK == "Lain - Lain" {
+                                TextField("cth: OrangTua", text: $vm_topup.manualTopup, onCommit: {
+                                    if !vm_topup.manualTopup.isEmpty {
+                                        vm_topup.topupK = vm_topup.manualTopup
+                                    }
+                                    isInputActive = false
+                                    random.toggle()
+                                })
+                                .multilineTextAlignment(.trailing)
+                                .focused($isInputActive)
+                            } else {
+                                Picker("", selection: $vm_topup.topupK) {
+                                    ForEach(vm_topup.topupC, id: \.self) { choice in
+                                        Text(choice).tag(choice)
+                                    }
+                                }
+                                .pickerStyle(.menu)
                             }
-                            
                         }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
-                        .multilineTextAlignment(.trailing)
-                        
-                           
-                        }
+        
+                    }
                 
                     
                     HStack{
@@ -90,6 +100,9 @@ struct TopUpIncomeView: View {
                 
                 .navigationBarItems(trailing:
                                         Button("Add") {
+                    if vm_topup.topupK.isEmpty{
+                        vm_topup.topupK = vm_topup.topupC.first ?? ""
+                    }
                     vm_topup.saveTopup()
                     dismiss()
                     random.toggle()
