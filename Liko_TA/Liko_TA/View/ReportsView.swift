@@ -19,6 +19,9 @@ struct ReportsView: View {
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
     
+    @State private var selectedMonthIndex = 0
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
     let text1 = WineLog(
         text: "Income"
         )
@@ -39,6 +42,17 @@ struct ReportsView: View {
         NavigationStack{
             ScrollView{
                 VStack{
+                    HStack{
+                        Spacer()
+                        Picker("Select Month", selection: $selectedMonthIndex) {
+                            ForEach(0..<months.count) { index in
+                                Text(months[index]).tag(index)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                    }
+                    .padding()
+                    
                     Chart{
                         BarMark(x : .value("Income", text1.text),
                                 y : .value("In Stock", vm_mainscreen.updateIncome)
@@ -55,18 +69,29 @@ struct ReportsView: View {
                     .frame(width: 380, height: 350)
    
                     
-                    
-                    ZStack{
+                    HStack{
+                        ZStack{
                             RoundedRectangle(cornerRadius:20)
                                 .fill(.white)
-                                .frame(width: 280, height: 90, alignment: .leading)
-                        ReportCardView(totalexpenses: vm_mainscreen.updateExp)
+                                .frame(width: 180, height: 90, alignment: .leading)
+                            ReportCardView(totalexpenses: vm_mainscreen.topupinc, totaltitle: "Total Income")
+                        }
+                        .padding(.leading, 10)
+                        Spacer()
+                        ZStack{
+                            RoundedRectangle(cornerRadius:20)
+                                .fill(.white)
+                                .frame(width: 180, height: 90, alignment: .leading)
+                            ReportCardView(totalexpenses: vm_mainscreen.updateExp, totaltitle: "Total Expenses")
+                        }
+                        .padding(.trailing, 10)
                     }
+                    
                     .padding(.bottom, 15)
                     Divider()
                     
                     VStack(alignment: .leading){
-                        Text("Detail Pengeluaran")
+                        Text("History")
                             .font(.system(size: 24)).bold()
                             .foregroundColor(.black)
                     }
@@ -92,6 +117,24 @@ struct ReportsView: View {
                             }
                             Divider()
                         }
+                        
+                        ForEach(vm_mainscreen.topups, id: \.id) { expenses in
+                            HStack {
+                                Text(expenses.topup)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                                    .padding(.leading, 10)
+                                Spacer()
+                                Text("+ Rp.  " + String(expenses.topupvalue))
+                                    .font(.subheadline)
+                                    .foregroundColor(Color("GreenColor"))
+                                    .padding(.trailing, 10)
+
+                            }
+                            Divider()
+                        }
+
                     }
                 }
             }

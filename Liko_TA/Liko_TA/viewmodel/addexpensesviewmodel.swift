@@ -15,6 +15,7 @@ class AddExpensesViewModel: ObservableObject{
     @Published var keterangan: String = ""
     @Published var expensesValue: Int = 0
 //    @Binding var updateIncome: Int = 0
+    @Published var manualInput: String = ""
     
     var selectedSegment: Budget?
 
@@ -82,13 +83,24 @@ class AddExpensesViewModel: ObservableObject{
     func saveExpenses(){
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let savedExpenses = Expenses(expenses: keterangan, expensesvalue: expensesValue)
+        var savedExpenses = Expenses(expenses: "", expensesvalue: expensesValue)
+        
+        // If "Lain - Lain" is in picker choices but not selected, use manual input
+            if keterangan == "Lain - Lain" {
+                savedExpenses = Expenses(expenses: manualInput, expensesvalue: expensesValue)
+            } else {
+                savedExpenses = Expenses(expenses: keterangan, expensesvalue: expensesValue)
+            }
+        
+        
+        
         let expensesRef = ref.child("expenses").child(uid!).childByAutoId()
         expensesRef.setValue(savedExpenses.toDictionary()){ error, _ in
             if let error = error{
                 print("Error saving expenses data: \(error.localizedDescription)")
             } else{
                 print("Successfully saved Expenses data")
+//                self.keterangan = ""
                 self.updateExpenses()
                 self.updateSegment(self.selectedSegment)
             }

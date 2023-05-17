@@ -100,16 +100,6 @@ struct RegisterPage: View {
                                 .cornerRadius(15)
                                     }
                                 }
-//                Button{
-//                    createUser()
-//                }label: {
-//                    Text("Sign Up")
-//                        .font(.headline)
-//                        .frame(width: 340, height: 50)
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(Color.black)
-//                        .background(Color("interactiveColor"))
-//                        .cornerRadius(15)
             }
             .padding(.leading, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

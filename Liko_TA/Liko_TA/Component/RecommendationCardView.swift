@@ -18,7 +18,9 @@ struct RecommendationCardView: View {
             Image("main screen-rekomendasi pengeluaran")
                         .resizable()
                         .frame(width: 100, height: 100)
-                        .position(x: 325, y: 60)
+//                        .position(x: 325, y: 60)
+                        .padding(.bottom, 25)
+                        .padding(.trailing, 10)
             
             
             VStack(alignment: .leading, spacing: 5) {
@@ -43,6 +45,8 @@ struct RecommendationCardView: View {
 
         }
 //        .frame(width: .infinity , height: 100)
+//        .background(Color.blue)
+        
         
     }
 }
@@ -50,6 +54,6 @@ struct RecommendationCardView: View {
 struct RecommendationCardView_Previews: PreviewProvider {
     static var previews: some View {
         RecommendationCardView(recommendation: 0)
-            .frame(width: .infinity , height: 100)
+//            .frame(width: .infinity , height: 80)
     }
 }

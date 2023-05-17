@@ -49,6 +49,20 @@
 		25A4AFFC29C44576001227BB /* Liko_TATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFFB29C44576001227BB /* Liko_TATests.swift */; };
 		25A4B00629C44576001227BB /* Liko_TAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4B00529C44576001227BB /* Liko_TAUITests.swift */; };
 		25A4B00829C44576001227BB /* Liko_TAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4B00729C44576001227BB /* Liko_TAUITestsLaunchTests.swift */; };
+		25BAC3C72A14314A003DECF2 /* authviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3C62A14314A003DECF2 /* authviewmodel.swift */; };
+		25BAC3CA2A146DE9003DECF2 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3C92A146DE9003DECF2 /* WidgetView.swift */; };
+		25BAC3D22A146E4B003DECF2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BAC3D12A146E4B003DECF2 /* WidgetKit.framework */; };
+		25BAC3D42A146E4B003DECF2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BAC3D32A146E4B003DECF2 /* SwiftUI.framework */; };
+		25BAC3D72A146E4B003DECF2 /* FinningWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3D62A146E4B003DECF2 /* FinningWidgetBundle.swift */; };
+		25BAC3D92A146E4B003DECF2 /* FinningWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3D82A146E4B003DECF2 /* FinningWidgetLiveActivity.swift */; };
+		25BAC3DB2A146E4B003DECF2 /* FinningWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3DA2A146E4B003DECF2 /* FinningWidget.swift */; };
+		25BAC3DE2A146E4C003DECF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25BAC3DD2A146E4C003DECF2 /* Assets.xcassets */; };
+		25BAC3E02A146E4C003DECF2 /* FinningWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3DC2A146E4B003DECF2 /* FinningWidget.intentdefinition */; };
+		25BAC3E12A146E4C003DECF2 /* FinningWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3DC2A146E4B003DECF2 /* FinningWidget.intentdefinition */; };
+		25BAC3E42A146E4C003DECF2 /* FinningWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 25BAC3CF2A146E4B003DECF2 /* FinningWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		25BAC3EA2A147E90003DECF2 /* topup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3E92A147E90003DECF2 /* topup.swift */; };
+		25BAC3EC2A148651003DECF2 /* TopUpIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3EB2A148651003DECF2 /* TopUpIncomeView.swift */; };
+		25BAC3EE2A1497D5003DECF2 /* topupviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BAC3ED2A1497D5003DECF2 /* topupviewmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +80,28 @@
 			remoteGlobalIDString = 25A4AFE629C44575001227BB;
 			remoteInfo = Liko_TA;
 		};
+		25BAC3E22A146E4C003DECF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25A4AFDF29C44575001227BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25BAC3CE2A146E4B003DECF2;
+			remoteInfo = FinningWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		25BAC3E82A146E4C003DECF2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				25BAC3E42A146E4C003DECF2 /* FinningWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25113E6829DDD91500991DB9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -103,6 +138,20 @@
 		25A4B00129C44576001227BB /* Liko_TAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Liko_TAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4B00529C44576001227BB /* Liko_TAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAUITests.swift; sourceTree = "<group>"; };
 		25A4B00729C44576001227BB /* Liko_TAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25BAC3C62A14314A003DECF2 /* authviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authviewmodel.swift; sourceTree = "<group>"; };
+		25BAC3C92A146DE9003DECF2 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		25BAC3CF2A146E4B003DECF2 /* FinningWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FinningWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		25BAC3D12A146E4B003DECF2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		25BAC3D32A146E4B003DECF2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		25BAC3D62A146E4B003DECF2 /* FinningWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinningWidgetBundle.swift; sourceTree = "<group>"; };
+		25BAC3D82A146E4B003DECF2 /* FinningWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinningWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		25BAC3DA2A146E4B003DECF2 /* FinningWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinningWidget.swift; sourceTree = "<group>"; };
+		25BAC3DC2A146E4B003DECF2 /* FinningWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = FinningWidget.intentdefinition; sourceTree = "<group>"; };
+		25BAC3DD2A146E4C003DECF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25BAC3DF2A146E4C003DECF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25BAC3E92A147E90003DECF2 /* topup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topup.swift; sourceTree = "<group>"; };
+		25BAC3EB2A148651003DECF2 /* TopUpIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpIncomeView.swift; sourceTree = "<group>"; };
+		25BAC3ED2A1497D5003DECF2 /* topupviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topupviewmodel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +184,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25BAC3CC2A146E4B003DECF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BAC3D42A146E4B003DECF2 /* SwiftUI.framework in Frameworks */,
+				25BAC3D22A146E4B003DECF2 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +235,8 @@
 				253C02ED2A097A500085058C /* SetupBudgetViewModel.swift */,
 				253C02F42A0D7E3E0085058C /* mainscreenviewmodel.swift */,
 				253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */,
+				25BAC3C62A14314A003DECF2 /* authviewmodel.swift */,
+				25BAC3ED2A1497D5003DECF2 /* topupviewmodel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -186,6 +246,7 @@
 			children = (
 				25113E8029EB515700991DB9 /* AddExpenseMainView.swift */,
 				253C02E02A06BCE70085058C /* AddBudgetModalView.swift */,
+				25BAC3EB2A148651003DECF2 /* TopUpIncomeView.swift */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -211,6 +272,7 @@
 				253C02E72A0969300085058C /* IncomeModel.swift */,
 				253C02F62A0D842F0085058C /* segment.swift */,
 				253C02F82A0FB9870085058C /* expenses.swift */,
+				25BAC3E92A147E90003DECF2 /* topup.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -221,6 +283,8 @@
 				25A4AFE929C44575001227BB /* Liko_TA */,
 				25A4AFFA29C44576001227BB /* Liko_TATests */,
 				25A4B00429C44576001227BB /* Liko_TAUITests */,
+				25BAC3D52A146E4B003DECF2 /* FinningWidget */,
+				25BAC3D02A146E4B003DECF2 /* Frameworks */,
 				25A4AFE829C44575001227BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -231,6 +295,7 @@
 				25A4AFE729C44575001227BB /* Liko_TA.app */,
 				25A4AFF729C44576001227BB /* Liko_TATests.xctest */,
 				25A4B00129C44576001227BB /* Liko_TAUITests.xctest */,
+				25BAC3CF2A146E4B003DECF2 /* FinningWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +303,7 @@
 		25A4AFE929C44575001227BB /* Liko_TA */ = {
 			isa = PBXGroup;
 			children = (
+				25BAC3C82A146D7D003DECF2 /* Widget */,
 				253C02E62A09691C0085058C /* model */,
 				25113E7E29EB511400991DB9 /* viewmodel */,
 				25113E7729EB4C9300991DB9 /* Component */,
@@ -277,6 +343,36 @@
 			path = Liko_TAUITests;
 			sourceTree = "<group>";
 		};
+		25BAC3C82A146D7D003DECF2 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				25BAC3C92A146DE9003DECF2 /* WidgetView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		25BAC3D02A146E4B003DECF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25BAC3D12A146E4B003DECF2 /* WidgetKit.framework */,
+				25BAC3D32A146E4B003DECF2 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25BAC3D52A146E4B003DECF2 /* FinningWidget */ = {
+			isa = PBXGroup;
+			children = (
+				25BAC3D62A146E4B003DECF2 /* FinningWidgetBundle.swift */,
+				25BAC3D82A146E4B003DECF2 /* FinningWidgetLiveActivity.swift */,
+				25BAC3DA2A146E4B003DECF2 /* FinningWidget.swift */,
+				25BAC3DC2A146E4B003DECF2 /* FinningWidget.intentdefinition */,
+				25BAC3DD2A146E4C003DECF2 /* Assets.xcassets */,
+				25BAC3DF2A146E4C003DECF2 /* Info.plist */,
+			);
+			path = FinningWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,10 +383,12 @@
 				25A4AFE329C44575001227BB /* Sources */,
 				25A4AFE429C44575001227BB /* Frameworks */,
 				25A4AFE529C44575001227BB /* Resources */,
+				25BAC3E82A146E4C003DECF2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				25BAC3E32A146E4C003DECF2 /* PBXTargetDependency */,
 			);
 			name = Liko_TA;
 			packageProductDependencies = (
@@ -346,6 +444,23 @@
 			productReference = 25A4B00129C44576001227BB /* Liko_TAUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		25BAC3CE2A146E4B003DECF2 /* FinningWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25BAC3E52A146E4C003DECF2 /* Build configuration list for PBXNativeTarget "FinningWidgetExtension" */;
+			buildPhases = (
+				25BAC3CB2A146E4B003DECF2 /* Sources */,
+				25BAC3CC2A146E4B003DECF2 /* Frameworks */,
+				25BAC3CD2A146E4B003DECF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinningWidgetExtension;
+			productName = FinningWidgetExtension;
+			productReference = 25BAC3CF2A146E4B003DECF2 /* FinningWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,7 +468,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					25A4AFE629C44575001227BB = {
@@ -366,6 +481,9 @@
 					25A4B00029C44576001227BB = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 25A4AFE629C44575001227BB;
+					};
+					25BAC3CE2A146E4B003DECF2 = {
+						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -388,6 +506,7 @@
 				25A4AFE629C44575001227BB /* Liko_TA */,
 				25A4AFF629C44576001227BB /* Liko_TATests */,
 				25A4B00029C44576001227BB /* Liko_TAUITests */,
+				25BAC3CE2A146E4B003DECF2 /* FinningWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -417,6 +536,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		25BAC3CD2A146E4B003DECF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BAC3DE2A146E4C003DECF2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -426,10 +553,12 @@
 			files = (
 				253C02DC2A06B2800085058C /* ReportCardView.swift in Sources */,
 				253C02F52A0D7E3E0085058C /* mainscreenviewmodel.swift in Sources */,
+				25BAC3EA2A147E90003DECF2 /* topup.swift in Sources */,
 				253C02E52A0947100085058C /* WriteViewModel.swift in Sources */,
 				25113E8329EB523700991DB9 /* CardView.swift in Sources */,
 				25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */,
 				25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */,
+				25BAC3CA2A146DE9003DECF2 /* WidgetView.swift in Sources */,
 				25113E7229E0860B00991DB9 /* Textfield.swift in Sources */,
 				25A4AFED29C44575001227BB /* ContentView.swift in Sources */,
 				253C02EE2A097A500085058C /* SetupBudgetViewModel.swift in Sources */,
@@ -444,10 +573,14 @@
 				25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */,
 				253C02E82A0969300085058C /* IncomeModel.swift in Sources */,
 				25113E7B29EB4E6F00991DB9 /* RecommendationCardView.swift in Sources */,
+				25BAC3EC2A148651003DECF2 /* TopUpIncomeView.swift in Sources */,
 				253C02F92A0FB9870085058C /* expenses.swift in Sources */,
+				25BAC3EE2A1497D5003DECF2 /* topupviewmodel.swift in Sources */,
 				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
 				253C02FB2A0FBAE30085058C /* addexpensesviewmodel.swift in Sources */,
+				25BAC3E12A146E4C003DECF2 /* FinningWidget.intentdefinition in Sources */,
 				25113E7929EB4D4B00991DB9 /* SisaUangCardView.swift in Sources */,
+				25BAC3C72A14314A003DECF2 /* authviewmodel.swift in Sources */,
 				253C02E32A06D8550085058C /* CardExpensesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +602,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		25BAC3CB2A146E4B003DECF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BAC3E02A146E4C003DECF2 /* FinningWidget.intentdefinition in Sources */,
+				25BAC3DB2A146E4B003DECF2 /* FinningWidget.swift in Sources */,
+				25BAC3D92A146E4B003DECF2 /* FinningWidgetLiveActivity.swift in Sources */,
+				25BAC3D72A146E4B003DECF2 /* FinningWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -481,6 +625,11 @@
 			isa = PBXTargetDependency;
 			target = 25A4AFE629C44575001227BB /* Liko_TA */;
 			targetProxy = 25A4B00229C44576001227BB /* PBXContainerItemProxy */;
+		};
+		25BAC3E32A146E4C003DECF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25BAC3CE2A146E4B003DECF2 /* FinningWidgetExtension */;
+			targetProxy = 25BAC3E22A146E4C003DECF2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -602,6 +751,7 @@
 		25A4B00C29C44576001227BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -631,6 +781,7 @@
 		25A4B00D29C44576001227BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -729,6 +880,62 @@
 			};
 			name = Release;
 		};
+		25BAC3E62A146E4C003DECF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V87M9TA2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinningWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FinningWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iplayallday.Liko-TA.FinningWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		25BAC3E72A146E4C003DECF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V87M9TA2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinningWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FinningWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iplayallday.Liko-TA.FinningWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -764,6 +971,15 @@
 			buildConfigurations = (
 				25A4B01229C44576001227BB /* Debug */,
 				25A4B01329C44576001227BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25BAC3E52A146E4C003DECF2 /* Build configuration list for PBXNativeTarget "FinningWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25BAC3E62A146E4C003DECF2 /* Debug */,
+				25BAC3E72A146E4C003DECF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

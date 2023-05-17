@@ -21,6 +21,7 @@ struct MainScreen: View {
     @State private var isModalOpen = false
     @State private var selectedSegment: Budget? = nil
     @State private var reportsButtonText = "See Reports"
+    @State private var ModalTopUp = false
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
     
@@ -60,15 +61,36 @@ struct MainScreen: View {
                             SisaUangCardView(valueincome: vm_mainscreen.updateIncome)
                         }
                         .padding(.top, 15)
-//                        .onAppear{
-//                            vm_mainscreen.observeIncome()
-//                        }
+                    
+                        
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                ModalTopUp = true
+                            }) {
+                                    Text("Top Up")
+                                        .fontWeight(.heavy)
+                                        .padding(.trailing, 35)
+                                        .foregroundColor(Color("interactiveColor"))
+                                
+                            }
+                        }
+                        .sheet(isPresented: $ModalTopUp){
+                            TopUpIncomeView(random: .constant(true))
+                        }
+
+                        Spacer()
+                            .frame(height: 2)
+            
                         ZStack{
-                            RoundedRectangle(cornerRadius:20)
+                            RoundedRectangle(cornerRadius:15)
                                 .fill(.white)
                                 .frame(width: 360, height: 80, alignment: .leading)
                             RecommendationCardView(recommendation: vm_mainscreen.recommendation())
                         }
+                        
+                        
+                        
                         VStack(){
                             Text("Budget")
                                 .font(.system(size: 24)).bold()

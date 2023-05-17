@@ -13,8 +13,14 @@ class MainScreenViewModel : ObservableObject {
     
     @Published var updateIncome: Int = 0
     @Published var segment: [Budget] = []
+    
+    
     @Published var updateExp: Int = 0
     @Published var expenses: [Expenses] = []
+    
+    
+    @Published var topups: [Topup] = []
+    @Published var topupinc: Int = 0
     
 
     
@@ -49,6 +55,36 @@ class MainScreenViewModel : ObservableObject {
                 self.expenses = result
             })
         }
+        
+        if let user = Auth.auth().currentUser {
+            let uid = user.uid
+            let ref = Database.database().reference().child("topupincome").child(uid)
+            
+            ref.observe(DataEventType.value, with: { snapshot in
+                var topU: Int = 0
+                var result: [Topup] = []
+                
+                
+                for child in snapshot.children {
+                    if let childSnapshot = child as? DataSnapshot,
+                       let dict = childSnapshot.value as? [String:Any],
+//                       let date = dict["timeAdded"] as? Date(),
+                       let ket = dict["topup"] as? String,
+                       let topUs = dict["topupvalue"] as? Int {
+                        let fetch = Topup(id: childSnapshot.key, topup: ket, topupvalue: topUs, timeAdded: Date())
+                        result.append(fetch)
+                        
+                        topU += topUs
+                    }
+                }
+                self.topupinc = topU
+                
+                self.topups = result
+            })
+        }
+        
+
+
         
         if let user = Auth.auth().currentUser {
             let uid = user.uid

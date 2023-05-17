@@ -12,11 +12,13 @@ struct ReportCardView: View {
     
     var totalexpenses: Int
     
+    var totaltitle : String
+    
     
     
     var body: some View {
         VStack(spacing: 15){
-            Text("Total Pengeluaran : ")
+            Text(self.totaltitle)
                 .font(.system(size: 16))
             Text("Rp. \(self.totalexpenses) ,- ")
                 .font(.system(size: 16))
@@ -28,7 +30,6 @@ struct ReportCardView: View {
 
 struct ReportCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportCardView(totalexpenses: 0)
-            .frame(width: 300, height: 100)
+        ReportCardView(totalexpenses: 0, totaltitle: "")
     }
 }

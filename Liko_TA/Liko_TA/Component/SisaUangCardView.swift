@@ -22,7 +22,6 @@ struct SisaUangCardView: View {
                 .aspectRatio(contentMode: .fill)
 //                .position(x: 40, y: 60)
             HStack{
-                
                 Spacer()
                 VStack(spacing :2) {
                     Spacer()
@@ -41,12 +40,10 @@ struct SisaUangCardView: View {
 //                        .font(.system(size: 7))
 //                        .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
-                    
+               
                     
                 }
                 .frame(width: 240, height: 100)
-                
-                
                 
             }
             
