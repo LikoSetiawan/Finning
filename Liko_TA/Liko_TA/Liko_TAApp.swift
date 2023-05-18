@@ -11,13 +11,13 @@ import FirebaseCore
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-//    let databaseUrl = "https://liko-ta-be5f1-default-rtdb.asia-southeast1.firebasedatabase.app"
-//    Database.database(url: databaseUrl).reference()
-    return true
-  }
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        //    let databaseUrl = "https://liko-ta-be5f1-default-rtdb.asia-southeast1.firebasedatabase.app"
+        //    Database.database(url: databaseUrl).reference()
+        return true
+    }
 }
 
 
@@ -26,20 +26,29 @@ struct Liko_TAApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-//    init() {
-//        FirebaseApp.configure()
-//    }
+    //    init() {
+    //        FirebaseApp.configure()
+    //    }
+    
+    @StateObject private var authViewModel = AuthViewModel()
     
     var body: some Scene {
         WindowGroup {
-            if UserDefaults.standard.bool(forKey: "hasShownOnboarding") {
-                LoginPage()
+            if authViewModel.isLoggedin {
+                MainScreen()
+                    .environmentObject(authViewModel)
             } else {
-                OnboardingView()
-                    .onAppear {
-                        UserDefaults.standard.set(true, forKey: "hasShownOnboarding")
-                    }
+                if UserDefaults.standard.bool(forKey: "hasShownOnboarding") {
+                    LoginPage()
+                        .environmentObject(authViewModel)
+                } else {
+                    OnboardingView()
+                        .onAppear {
+                            UserDefaults.standard.set(true, forKey: "hasShownOnboarding")
+                        }
+                }
             }
         }
     }
 }
+

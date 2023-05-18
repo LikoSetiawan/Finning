@@ -42,6 +42,9 @@
 		253C02F72A0D842F0085058C /* segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F62A0D842F0085058C /* segment.swift */; };
 		253C02F92A0FB9870085058C /* expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02F82A0FB9870085058C /* expenses.swift */; };
 		253C02FB2A0FBAE30085058C /* addexpensesviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */; };
+		256601362A15BB2F0069477F /* AddCreditBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256601352A15BB2F0069477F /* AddCreditBudgetView.swift */; };
+		256601382A15C1BE0069477F /* addcredit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256601372A15C1BE0069477F /* addcredit.swift */; };
+		2566013A2A15C2000069477F /* addcreditviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256601392A15C2000069477F /* addcreditviewmodel.swift */; };
 		25A4AFEB29C44575001227BB /* Liko_TAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEA29C44575001227BB /* Liko_TAApp.swift */; };
 		25A4AFED29C44575001227BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A4AFEC29C44575001227BB /* ContentView.swift */; };
 		25A4AFEF29C44576001227BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A4AFEE29C44576001227BB /* Assets.xcassets */; };
@@ -128,6 +131,9 @@
 		253C02F62A0D842F0085058C /* segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segment.swift; sourceTree = "<group>"; };
 		253C02F82A0FB9870085058C /* expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = expenses.swift; sourceTree = "<group>"; };
 		253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addexpensesviewmodel.swift; sourceTree = "<group>"; };
+		256601352A15BB2F0069477F /* AddCreditBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditBudgetView.swift; sourceTree = "<group>"; };
+		256601372A15C1BE0069477F /* addcredit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addcredit.swift; sourceTree = "<group>"; };
+		256601392A15C2000069477F /* addcreditviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addcreditviewmodel.swift; sourceTree = "<group>"; };
 		25A4AFE729C44575001227BB /* Liko_TA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liko_TA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A4AFEA29C44575001227BB /* Liko_TAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Liko_TAApp.swift; sourceTree = "<group>"; };
 		25A4AFEC29C44575001227BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				253C02FA2A0FBAE30085058C /* addexpensesviewmodel.swift */,
 				25BAC3C62A14314A003DECF2 /* authviewmodel.swift */,
 				25BAC3ED2A1497D5003DECF2 /* topupviewmodel.swift */,
+				256601392A15C2000069477F /* addcreditviewmodel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 				25113E8029EB515700991DB9 /* AddExpenseMainView.swift */,
 				253C02E02A06BCE70085058C /* AddBudgetModalView.swift */,
 				25BAC3EB2A148651003DECF2 /* TopUpIncomeView.swift */,
+				256601352A15BB2F0069477F /* AddCreditBudgetView.swift */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				253C02F62A0D842F0085058C /* segment.swift */,
 				253C02F82A0FB9870085058C /* expenses.swift */,
 				25BAC3E92A147E90003DECF2 /* topup.swift */,
+				256601372A15C1BE0069477F /* addcredit.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				253C02F52A0D7E3E0085058C /* mainscreenviewmodel.swift in Sources */,
 				25BAC3EA2A147E90003DECF2 /* topup.swift in Sources */,
 				253C02E52A0947100085058C /* WriteViewModel.swift in Sources */,
+				256601382A15C1BE0069477F /* addcredit.swift in Sources */,
 				25113E8329EB523700991DB9 /* CardView.swift in Sources */,
 				25113E8529EC79C300991DB9 /* ReportsView.swift in Sources */,
 				25113E7D29EB4F8F00991DB9 /* MainScreen.swift in Sources */,
@@ -565,6 +575,7 @@
 				25113E6929DDD91500991DB9 /* Color.swift in Sources */,
 				2525DBBC29D4AD3E0083AB91 /* LoginPage.swift in Sources */,
 				253C02F72A0D842F0085058C /* segment.swift in Sources */,
+				256601362A15BB2F0069477F /* AddCreditBudgetView.swift in Sources */,
 				253C02E12A06BCE70085058C /* AddBudgetModalView.swift in Sources */,
 				25113E6D29DF364300991DB9 /* RegisterPage.swift in Sources */,
 				25113E8129EB515700991DB9 /* AddExpenseMainView.swift in Sources */,
@@ -578,6 +589,7 @@
 				25BAC3EE2A1497D5003DECF2 /* topupviewmodel.swift in Sources */,
 				25113E7629E2BAB200991DB9 /* SetupBudgetView.swift in Sources */,
 				253C02FB2A0FBAE30085058C /* addexpensesviewmodel.swift in Sources */,
+				2566013A2A15C2000069477F /* addcreditviewmodel.swift in Sources */,
 				25BAC3E12A146E4C003DECF2 /* FinningWidget.intentdefinition in Sources */,
 				25113E7929EB4D4B00991DB9 /* SisaUangCardView.swift in Sources */,
 				25BAC3C72A14314A003DECF2 /* authviewmodel.swift in Sources */,

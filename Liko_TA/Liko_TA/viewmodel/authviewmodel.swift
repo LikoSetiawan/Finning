@@ -40,6 +40,22 @@ class AuthViewModel: ObservableObject {
             print("Failed to log out:", error)
         }
     }
+    
+    func createUser(email: String, password: String) {
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+                if let error = error {
+                    print("Failed due to error:", error)
+                    return
+                }
+                
+                print("Successfully created account with ID: \(result?.user.uid ?? "")")
+                
+                self?.isLoggedin = true
+            }
+        }
+    
+    
+    
 }
 
 

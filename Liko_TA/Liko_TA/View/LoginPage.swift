@@ -11,7 +11,7 @@ import FirebaseAuth
 
 struct LoginPage: View {
     
-    @State private var isLogin = false
+    @EnvironmentObject var authViewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -86,7 +86,9 @@ struct LoginPage: View {
                 Spacer()
                     .frame(height: 2)
                 
-                Button(action: loginUser) {
+                Button(action: {
+                    authViewModel.loginUser(email: email, password: password)
+                }) {
                     Text("Login")
                         .font(.headline)
                         .frame(width: 340, height: 50)
@@ -94,21 +96,11 @@ struct LoginPage: View {
                         .foregroundColor(Color.black)
                         .background(Color("interactiveColor"))
                         .cornerRadius(15)
-                        }
+                }
                         // Navigate kalo berhasil log in
-                NavigationLink(destination: InputIncomeView().navigationBarBackButtonHidden(true), isActive: $isLogin) {
+                NavigationLink(destination: InputIncomeView().navigationBarBackButtonHidden(true), isActive: $authViewModel.isLoggedin) {
                             EmptyView()
-        
-//                Button{
-//
-//                }label: {
-//                    Text("Login")
-//                        .font(.headline)
-//                        .frame(width: 340, height: 50)
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(Color.black)
-//                        .background(Color("interactiveColor"))
-//                        .cornerRadius(15)
+
                 }
                 
             }
@@ -117,21 +109,10 @@ struct LoginPage: View {
             }
         
         }
-    //tutorial disini bang
-    //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
+
     
     
-    private func loginUser() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, err in
-            if let err = err {
-                print("Failed due to error:", err)
-                return
-            }
-            print("Successfully logged in with ID: \(result?.user.uid ?? "")")
-            // Set isLogin to true if login is successful
-            self.isLogin = true
-        }
-    }
+
     
     
     }
@@ -144,16 +125,4 @@ struct LoginPage_Previews: PreviewProvider {
     }
 }
 
-extension View{
-    func placeholder<Content : View>(
-        when shouldShow : Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View{
-            
-            
-            ZStack(alignment: alignment){
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
-        }
-}
+

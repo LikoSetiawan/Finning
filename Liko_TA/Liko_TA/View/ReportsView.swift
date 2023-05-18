@@ -19,13 +19,7 @@ struct ReportsView: View {
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
     
-//    @State private var selectedMonthIndex: Int = Calendar.current.component(.month, from: Date()) - 1 {
-//        didSet {
-//                let selectedMonth = months[selectedMonthIndex]
-//                // Perform data updates based on the selected month
-//                updateDataForMonth(selectedMonth)
-//            }
-//    }// Get the current month index
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     let months = Calendar.current.monthSymbols
     
@@ -162,6 +156,18 @@ struct ReportsView: View {
 
                     }
                 }
+                Button(action: {
+                    authViewModel.logoutUser()
+                }) {
+                    Text("Logout")
+                        .font(.headline)
+                        .frame(width: 200, height: 50)
+                        .foregroundColor(.white)
+                        .background(Color("RedColor"))
+                        .cornerRadius(10)
+                }
+                .padding(.bottom, 20)
+                .padding(.top, 10)
             }
             .padding()
             .navigationTitle("Report ")

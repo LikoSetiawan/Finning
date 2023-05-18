@@ -22,6 +22,7 @@ struct MainScreen: View {
     @State private var selectedSegment: Budget? = nil
     @State private var reportsButtonText = "See Reports"
     @State private var ModalTopUp = false
+    @State private var modalCreditAdd = false
     
     @ObservedObject var vm_mainscreen = MainScreenViewModel()
     
@@ -70,6 +71,7 @@ struct MainScreen: View {
                             }) {
                                     Text("Top Up")
                                         .fontWeight(.heavy)
+                                        .font(.system(size: 18)).bold()
                                         .padding(.trailing, 35)
                                         .foregroundColor(Color("interactiveColor"))
                                 
@@ -80,7 +82,7 @@ struct MainScreen: View {
                         }
 
                         Spacer()
-                            .frame(height: 2)
+                            .frame(height: 1)
             
                         ZStack{
                             RoundedRectangle(cornerRadius:15)
@@ -88,17 +90,36 @@ struct MainScreen: View {
                                 .frame(width: 360, height: 80, alignment: .leading)
                             RecommendationCardView(recommendation: vm_mainscreen.recommendation())
                         }
+//                        .frame(width: 360, height: 80, alignment: .leading)
                         
                         
                         
                         VStack(){
-                            Text("Budget")
-                                .font(.system(size: 24)).bold()
-                                .foregroundColor(.black)
+                            HStack{
+                                Text("Budget")
+                                    .font(.system(size: 26)).bold()
+                                    .foregroundColor(.black)
+                                
+                                Spacer()
+                                Button(action: {
+                                    modalCreditAdd = true
+                                }) {
+                                    Text("Add Credit")
+                                        .fontWeight(.heavy)
+                                        .font(.system(size: 18)).bold()
+                                        .padding(.trailing, 35)
+                                        .foregroundColor(Color("interactiveColor"))
+                                    
+                                }
+                            }
+                            .sheet(isPresented: $modalCreditAdd){
+                                AddCreditBudgetView(editSegment: .constant(nil), random: .constant(true))
+                            }
+                            
                             
                         }
-                        .frame(width: 345, height: 10, alignment: .leading)
-                        .padding(.top, 10)
+//                        .frame(width: 345, height: 10, alignment: .leading)
+                        .padding(.leading, 22)
   
                         LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                             ForEach(vm_mainscreen.segment, id: \.id) { segment in

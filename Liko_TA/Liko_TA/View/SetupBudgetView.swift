@@ -82,13 +82,15 @@ struct SetupBudgetView: View {
                 .frame(height: 20)
             Button(action: {
                 let totalSegments = vm.segments1 + vm.segments2 + vm.segments3 + vm.segments4
-                if totalSegments <= vm.userIncome {
+                if totalSegments == vm.userIncome {
                     vm.saveSegment(segmentS: vm.segments1 , title: "Food & Drink", percentage: 100, originalSegmentS: vm.segments1)
                     vm.saveSegment(segmentS: vm.segments2, title: "Transportation", percentage: 100, originalSegmentS: vm.segments2)
                     vm.saveSegment(segmentS: vm.segments3, title: "Hobby", percentage: 100, originalSegmentS: vm.segments3)
                     vm.saveSegment(segmentS: vm.segments4, title: "Colleague Needs", percentage: 100, originalSegmentS: vm.segments4)
                     isNextViewActive = true
-                } else {
+                } else if totalSegments <= vm.userIncome{
+                    showAlert = true
+                }else{
                     showAlert = true
                 }
             }) {

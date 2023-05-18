@@ -12,7 +12,7 @@ import FirebaseAuth
 struct RegisterPage: View {
     
     
-    @State private var isLogin = false
+    @EnvironmentObject private var authViewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -86,10 +86,9 @@ struct RegisterPage: View {
                 Spacer()
                     .frame(height: 2)
                 
-                NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true), isActive: $isLogin){
+                NavigationLink(destination: LoginPage().navigationBarBackButtonHidden(true), isActive: $authViewModel.isLoggedin){
                         Button{
-                            createUser()
-                            isLogin = true
+                            authViewModel.createUser(email: email, password: password)
                     }label: {
                             Text("Sign Up")
                                 .font(.headline)
@@ -106,19 +105,7 @@ struct RegisterPage: View {
         }
     }
     
-    //tutorial disini
-    //https://www.youtube.com/watch?v=6b2WAePdiqA&t=927s
-    
-    
-    private func createUser() {
-           Auth.auth().createUser(withEmail: email, password: password, completion: { result, err in
-               if let err = err {
-                   print("Failed due to error:", err)
-                   return
-               }
-               print("Successfully created account with ID: \(result?.user.uid ?? "")")
-           })
-       }
+
 }
 
 struct RegisterPage_Previews: PreviewProvider {
